@@ -10,6 +10,17 @@ const STEPS: OrderStatus[] = [
   'DELIVERED',
 ]
 
+const STEP_LABELS: Record<OrderStatus, string> = {
+  PLACED:           'Order\nReceived',
+  PAYMENT_PENDING:  'Payment\nPending',
+  CONFIRMED:        'Confirmed',
+  PICKING:          'Picking\nItems',
+  PACKED:           'Packed',
+  OUT_FOR_DELIVERY: 'On the\nWay',
+  DELIVERED:        'Delivered',
+  CANCELLED:        'Cancelled',
+}
+
 export function OrderStepper({ status }: { status: OrderStatus }) {
   const activeIdx = STEPS.indexOf(status)
 
@@ -39,7 +50,7 @@ export function OrderStepper({ status }: { status: OrderStatus }) {
                   isActive ? 'text-indigo-600 font-semibold' : 'text-gray-400',
                 )}
               >
-                {step.replace(/_/g, '\n')}
+                {STEP_LABELS[step]}
               </span>
             </div>
             {!isLast && (

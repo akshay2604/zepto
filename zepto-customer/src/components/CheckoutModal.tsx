@@ -1,5 +1,5 @@
-import { useState, FormEvent } from 'react'
-import { X, CheckCircle, Loader2, Users } from 'lucide-react'
+import { useState, useEffect, FormEvent } from 'react'
+import { X, CheckCircle, Loader2, Users, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { useUser } from '../context/UserContext'
@@ -11,7 +11,15 @@ interface Props {
   warehouse: Warehouse | null
 }
 
-type Step = 'address' | 'payment' | 'done'
+type Step = 'payment' | 'done'
+
+interface Address {
+  id: string
+  line1: string
+  city: string
+  pincode: string
+  isDefault: boolean
+}
 
 const PAYMENT_METHODS = ['UPI', 'CARD', 'WALLET', 'COD']
 
@@ -19,46 +27,43 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
   const { items, subtotal, clear } = useCart()
   const { user } = useUser()
 
-  const [step, setStep] = useState<Step>('address')
+  const [step, setStep] = useState<Step>('payment')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [placedOrderId, setPlacedOrderId] = useState<string | null>(null)
 
-  // Form state
-  const [line1, setLine1] = useState('')
-  const [pincode, setPincode] = useState(warehouse?.pincode ?? '')
-  const [city, setCity] = useState(warehouse?.city ?? 'Bengaluru')
+  const [defaultAddress, setDefaultAddress] = useState<Address | null>(null)
+  const [addressLoading, setAddressLoading] = useState(false)
+
   const [paymentMethod, setPaymentMethod] = useState('UPI')
+
+  // Fetch default address when modal opens and user is set
+  useEffect(() => {
+    if (!open || !user) return
+    setAddressLoading(true)
+    fetch(`/users/${user.id}/addresses`)
+      .then(r => r.json())
+      .then((addrs: Address[]) => {
+        const def = addrs.find(a => a.isDefault) ?? null
+        setDefaultAddress(def)
+      })
+      .catch(() => setDefaultAddress(null))
+      .finally(() => setAddressLoading(false))
+  }, [open, user])
 
   if (!open) return null
 
   const deliveryFee = subtotal >= 199 ? 0 : 25
   const total = subtotal + deliveryFee
 
-  async function handleAddressSubmit(e: FormEvent) {
-    e.preventDefault()
-    setError(null)
-    if (!line1.trim()) { setError('Address is required'); return }
-    setStep('payment')
-  }
-
   async function handlePlaceOrder(e: FormEvent) {
     e.preventDefault()
-    if (!warehouse) return
+    if (!warehouse || !defaultAddress) return
     setLoading(true)
     setError(null)
 
     try {
       const userId = user!.id
-
-      // Add address
-      const addrRes = await fetch(`/users/${userId}/addresses`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ label: 'Home', line1, pincode, city, isDefault: true }),
-      })
-      if (!addrRes.ok) throw new Error('Failed to save address')
-      const addr = await addrRes.json()
 
       // Place order
       const orderRes = await fetch('/orders', {
@@ -66,7 +71,7 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           userId,
-          addressId: addr.id,
+          addressId: defaultAddress.id,
           warehouseId: warehouse.id,
           paymentMethod,
           items: items.map(i => ({ variantId: i.variant.id, qty: i.qty })),
@@ -100,9 +105,8 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
   }
 
   function handleClose() {
-    setStep('address')
+    setStep('payment')
     setError(null)
-    setLine1('')
     setPlacedOrderId(null)
     onClose()
   }
@@ -115,7 +119,6 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
           {/* Header */}
           <div className="flex items-center justify-between border-b px-5 py-4">
             <h2 className="font-semibold text-gray-900">
-              {step === 'address' && 'Delivery address'}
               {step === 'payment' && 'Payment & confirm'}
               {step === 'done' && 'Order placed!'}
             </h2>
@@ -136,25 +139,26 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
               </div>
             )}
 
-            {/* Step: address */}
-            {user && step === 'address' && (
-              <form onSubmit={handleAddressSubmit} className="space-y-3">
-                <p className="text-sm text-gray-500">Ordering as <span className="font-medium text-gray-700">{user.name}</span> · {user.phone}</p>
-                <Field label="Address" value={line1} onChange={setLine1} placeholder="12, 5th Cross, Koramangala" required />
-                <div className="flex gap-3">
-                  <Field label="Pincode" value={pincode} onChange={setPincode} placeholder="560034" />
-                  <Field label="City" value={city} onChange={setCity} placeholder="Bengaluru" />
-                </div>
-                {error && <p className="text-sm text-red-500">{error}</p>}
-                <button type="submit" className="w-full rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white hover:bg-indigo-700">
-                  Continue →
-                </button>
-              </form>
-            )}
-
             {/* Step: payment */}
             {user && step === 'payment' && (
               <form onSubmit={handlePlaceOrder} className="space-y-4">
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-500">Ordering as <span className="font-medium text-gray-700">{user.name}</span> · {user.phone}</p>
+                  {addressLoading ? (
+                    <p className="flex items-center gap-1.5 text-xs text-gray-400">
+                      <Loader2 className="h-3 w-3 animate-spin" />
+                      Loading address…
+                    </p>
+                  ) : defaultAddress ? (
+                    <p className="flex items-center gap-1.5 text-xs text-gray-500">
+                      <MapPin className="h-3 w-3 shrink-0 text-gray-400" />
+                      {defaultAddress.line1}, {defaultAddress.city}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-red-500">No default address on file. Please contact the admin to set one up.</p>
+                  )}
+                </div>
+
                 <div>
                   <p className="mb-2 text-sm font-medium text-gray-700">Payment method</p>
                   <div className="grid grid-cols-2 gap-2">
@@ -194,14 +198,16 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
                 </div>
 
                 {error && <p className="text-sm text-red-500">{error}</p>}
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-70"
-                >
-                  {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-                  {loading ? 'Placing order…' : `Place order · ₹${total.toFixed(0)}`}
-                </button>
+                {defaultAddress && (
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-70"
+                  >
+                    {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                    {loading ? 'Placing order…' : `Place order · ₹${total.toFixed(0)}`}
+                  </button>
+                )}
               </form>
             )}
 
@@ -226,26 +232,5 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
         </div>
       </div>
     </>
-  )
-}
-
-function Field({
-  label, value, onChange, placeholder, required, type = 'text',
-}: {
-  label: string; value: string; onChange: (v: string) => void
-  placeholder?: string; required?: boolean; type?: string
-}) {
-  return (
-    <div className="flex-1">
-      <label className="mb-1 block text-xs font-medium text-gray-700">{label}</label>
-      <input
-        type={type}
-        value={value}
-        onChange={e => onChange(e.target.value)}
-        placeholder={placeholder}
-        required={required}
-        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-200"
-      />
-    </div>
   )
 }

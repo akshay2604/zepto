@@ -7,16 +7,19 @@ interface UserForm {
   name: string
   phone: string
   email: string
+  line1: string
+  pincode: string
+  city: string
 }
 
 interface AssignForm {
   warehouseId: string
 }
 
-const EMPTY_FORM: UserForm = { name: '', phone: '', email: '' }
+const EMPTY_FORM: UserForm = { name: '', phone: '', email: '', line1: '', pincode: '', city: 'Bengaluru' }
 
 function userToForm(u: User): UserForm {
-  return { name: u.name, phone: u.phone, email: u.email ?? '' }
+  return { name: u.name, phone: u.phone, email: u.email ?? '', line1: '', pincode: '', city: 'Bengaluru' }
 }
 
 export function CustomersView() {
@@ -112,6 +115,18 @@ export function CustomersView() {
         if (!res.ok) {
           const text = await res.text()
           throw new Error(text || `HTTP ${res.status}`)
+        }
+        const newUser = await res.json() as { id: string }
+        if (form.line1.trim()) {
+          try {
+            await fetch(`/users/${newUser.id}/addresses`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ label: 'Home', line1: form.line1, pincode: form.pincode, city: form.city, isDefault: true }),
+            })
+          } catch (addrErr) {
+            console.error('Failed to save address (non-fatal)', addrErr)
+          }
         }
       }
       closeModal()
@@ -343,6 +358,47 @@ export function CustomersView() {
                   placeholder="rahul@example.com"
                 />
               </div>
+
+              {!editingUser && (
+                <>
+                  <div>
+                    <label className="mb-1 block text-xs font-medium text-gray-700">
+                      Delivery Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      required
+                      type="text"
+                      value={form.line1}
+                      onChange={(e) => setForm({ ...form, line1: e.target.value })}
+                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+                      placeholder="12, 5th Cross, Koramangala"
+                    />
+                  </div>
+
+                  <div className="flex gap-3">
+                    <div className="flex-1">
+                      <label className="mb-1 block text-xs font-medium text-gray-700">Pincode</label>
+                      <input
+                        type="text"
+                        value={form.pincode}
+                        onChange={(e) => setForm({ ...form, pincode: e.target.value })}
+                        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+                        placeholder="560034"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <label className="mb-1 block text-xs font-medium text-gray-700">City</label>
+                      <input
+                        type="text"
+                        value={form.city}
+                        onChange={(e) => setForm({ ...form, city: e.target.value })}
+                        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+                        placeholder="Bengaluru"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
 
               {formError && (
                 <p className="text-xs font-medium text-red-600 bg-red-50 rounded-lg px-3 py-2">
