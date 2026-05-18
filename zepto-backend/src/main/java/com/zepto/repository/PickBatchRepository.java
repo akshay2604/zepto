@@ -11,4 +11,5 @@ public interface PickBatchRepository extends JpaRepository<PickBatch, UUID> {
     List<PickBatch> findByWarehouseIdOrderByCreatedAtDesc(UUID warehouseId);
     List<PickBatch> findByWarehouseIdAndStatusOrderByCreatedAtDesc(UUID warehouseId, BatchStatus status);
     long countByWarehouseIdAndStatus(UUID warehouseId, BatchStatus status);
+    List<PickBatch> findByWarehouseId(UUID warehouseId);
 }

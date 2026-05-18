@@ -15,4 +15,10 @@ public interface UserAccountRepository extends JpaRepository<UserAccount, UUID> 
     boolean existsByPhone(String phone);
 
     java.util.Optional<UserAccount> findByPhone(String phone);
+
+    List<UserAccount> findByWarehouseId(UUID warehouseId);
+
+    @org.springframework.data.jpa.repository.Modifying
+    @org.springframework.data.jpa.repository.Query("UPDATE UserAccount u SET u.warehouse = null WHERE u.warehouse.id = :warehouseId")
+    void unassignWarehouse(@org.springframework.data.repository.query.Param("warehouseId") UUID warehouseId);
 }

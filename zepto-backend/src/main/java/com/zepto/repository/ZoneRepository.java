@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface ZoneRepository extends JpaRepository<Zone, UUID> {
     List<Zone> findByWarehouseIdOrderByDisplayOrderAsc(UUID warehouseId);
     boolean existsByWarehouseId(UUID warehouseId);
+    void deleteByWarehouseId(UUID warehouseId);
 }

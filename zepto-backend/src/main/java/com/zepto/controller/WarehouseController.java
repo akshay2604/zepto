@@ -1,8 +1,12 @@
 package com.zepto.controller;
 
 import com.zepto.dto.request.CreateWarehouseRequest;
+import com.zepto.dto.request.OnboardWarehouseRequest;
 import com.zepto.dto.request.UpdateWarehouseRequest;
+import com.zepto.dto.response.OnboardWarehouseResponse;
+import com.zepto.dto.response.PurgeWarehouseResponse;
 import com.zepto.dto.response.WarehouseResponse;
+import com.zepto.service.DarkStoreService;
 import com.zepto.service.WarehouseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +23,7 @@ import java.util.UUID;
 public class WarehouseController {
 
     private final WarehouseService warehouseService;
+    private final DarkStoreService darkStoreService;
 
     @GetMapping
     public ResponseEntity<List<WarehouseResponse>> list() {
@@ -45,5 +50,15 @@ public class WarehouseController {
     @PostMapping("/{id}/deactivate")
     public ResponseEntity<WarehouseResponse> deactivate(@PathVariable UUID id) {
         return ResponseEntity.ok(warehouseService.deactivate(id));
+    }
+
+    @PostMapping("/onboard")
+    public ResponseEntity<OnboardWarehouseResponse> onboard(@Valid @RequestBody OnboardWarehouseRequest req) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(darkStoreService.onboard(req));
+    }
+
+    @DeleteMapping("/{id}/purge")
+    public ResponseEntity<PurgeWarehouseResponse> purge(@PathVariable UUID id) {
+        return ResponseEntity.ok(darkStoreService.purge(id));
     }
 }

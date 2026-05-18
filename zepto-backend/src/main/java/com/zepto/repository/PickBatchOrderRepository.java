@@ -18,4 +18,6 @@ public interface PickBatchOrderRepository extends JpaRepository<PickBatchOrder, 
            "AND pbo.batch.status <> :excludeStatus")
     Set<UUID> findAlreadyBatchedOrderIds(@Param("warehouseId") UUID warehouseId,
                                          @Param("excludeStatus") BatchStatus excludeStatus);
+
+    void deleteByBatchIdIn(java.util.Collection<UUID> batchIds);
 }

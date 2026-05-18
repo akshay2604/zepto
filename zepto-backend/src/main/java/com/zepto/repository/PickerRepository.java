@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface PickerRepository extends JpaRepository<Picker, UUID> {
     List<Picker> findByWarehouseIdAndActiveTrue(UUID warehouseId);
     List<Picker> findByWarehouseId(UUID warehouseId);
+    void deleteByWarehouseId(UUID warehouseId);
 }

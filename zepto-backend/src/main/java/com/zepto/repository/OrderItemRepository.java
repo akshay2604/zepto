@@ -29,4 +29,6 @@ public interface OrderItemRepository extends JpaRepository<OrderItem, UUID> {
             ORDER  BY SUM(oi.qty) DESC
             """)
     List<Object[]> findTopVariantsByOrderStatus(@Param("status") OrderStatus status, Pageable pageable);
+
+    void deleteByOrderIdIn(java.util.Collection<UUID> orderIds);
 }

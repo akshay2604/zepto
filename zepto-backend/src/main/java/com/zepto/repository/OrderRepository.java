@@ -28,4 +28,6 @@ public interface OrderRepository extends JpaRepository<Order, UUID>, JpaSpecific
 
     @Query("SELECT o.status, COUNT(o) FROM Order o GROUP BY o.status")
     List<Object[]> countGroupedByStatus();
+
+    List<Order> findByWarehouseId(UUID warehouseId);
 }

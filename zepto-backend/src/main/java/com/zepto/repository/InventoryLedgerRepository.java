@@ -30,4 +30,5 @@ public interface InventoryLedgerRepository extends JpaRepository<InventoryLedger
     List<InventoryLedger> findByQtyOnHandLessThanEqual(int threshold);
 
     List<InventoryLedger> findByWarehouseId(UUID warehouseId);
+    void deleteByWarehouseId(UUID warehouseId);
 }

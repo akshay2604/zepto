@@ -19,4 +19,5 @@ public interface StockMovementRepository extends JpaRepository<StockMovement, UU
     List<StockMovement> findRecentWithVariant(Pageable pageable);
 
     void deleteByReferenceId(UUID referenceId);
+    void deleteByWarehouseId(UUID warehouseId);
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Pencil, X, Plus, Loader2, Bike } from 'lucide-react'
+import { Pencil, X, Plus, Loader2, Bike, ChevronDown, ChevronRight } from 'lucide-react'
 import { clsx } from 'clsx'
 import type { Rider, Warehouse } from '../types'
 
@@ -15,6 +15,157 @@ function riderToForm(r: Rider): RiderForm {
   return { name: r.name, phone: r.phone ?? '', vehicleNumber: r.vehicleNumber ?? '' }
 }
 
+function RiderRow({
+  r,
+  warehouses,
+  assigningId,
+  onEdit,
+  onToggleActive,
+  onAssignWarehouse,
+}: {
+  r: Rider
+  warehouses: Warehouse[]
+  assigningId: string | null
+  onEdit: (r: Rider) => void
+  onToggleActive: (r: Rider) => void
+  onAssignWarehouse: (rider: Rider, warehouseId: string) => void
+}) {
+  return (
+    <tr className={clsx('hover:bg-violet-50', !r.active && 'opacity-50')}>
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100">
+            <Bike className="h-4 w-4 text-emerald-600" />
+          </div>
+          <span className="font-medium text-gray-800">{r.name}</span>
+        </div>
+      </td>
+      <td className="px-4 py-3 text-gray-500 font-mono text-xs">
+        {r.phone ?? <span className="text-gray-300">—</span>}
+      </td>
+      <td className="px-4 py-3 text-gray-500 font-mono text-xs">
+        {r.vehicleNumber ?? <span className="text-gray-300">—</span>}
+      </td>
+      <td className="px-4 py-3">
+        {r.active ? (
+          <span className="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">ACTIVE</span>
+        ) : (
+          <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">INACTIVE</span>
+        )}
+      </td>
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => onEdit(r)}
+            className="flex items-center gap-1 rounded-md border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:border-violet-400 hover:text-violet-700 transition-colors"
+          >
+            <Pencil className="h-3 w-3" />
+            Edit
+          </button>
+          <button
+            onClick={() => onToggleActive(r)}
+            className={clsx(
+              'flex items-center gap-1 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
+              r.active
+                ? 'border-red-200 text-red-500 hover:border-red-400 hover:text-red-700'
+                : 'border-green-200 text-green-600 hover:border-green-400 hover:text-green-700',
+            )}
+          >
+            <X className="h-3 w-3" />
+            {r.active ? 'Deactivate' : 'Activate'}
+          </button>
+        </div>
+      </td>
+    </tr>
+  )
+}
+
+function UnassignedRiderRow({
+  r,
+  warehouses,
+  assigningId,
+  onEdit,
+  onToggleActive,
+  onAssignWarehouse,
+}: {
+  r: Rider
+  warehouses: Warehouse[]
+  assigningId: string | null
+  onEdit: (r: Rider) => void
+  onToggleActive: (r: Rider) => void
+  onAssignWarehouse: (rider: Rider, warehouseId: string) => void
+}) {
+  return (
+    <tr className={clsx('hover:bg-violet-50', !r.active && 'opacity-50')}>
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100">
+            <Bike className="h-4 w-4 text-emerald-600" />
+          </div>
+          <span className="font-medium text-gray-800">{r.name}</span>
+        </div>
+      </td>
+      <td className="px-4 py-3 text-gray-500 font-mono text-xs">
+        {r.phone ?? <span className="text-gray-300">—</span>}
+      </td>
+      <td className="px-4 py-3 text-gray-500 font-mono text-xs">
+        {r.vehicleNumber ?? <span className="text-gray-300">—</span>}
+      </td>
+      <td className="px-4 py-3">
+        <div className="relative">
+          {assigningId === r.id ? (
+            <Loader2 className="h-4 w-4 animate-spin text-violet-400" />
+          ) : (
+            <select
+              value={r.warehouseId ?? ''}
+              onChange={(e) => onAssignWarehouse(r, e.target.value)}
+              disabled={!r.active}
+              className="rounded-lg border border-gray-200 bg-white px-2.5 py-1.5 text-xs text-gray-700 outline-none focus:border-violet-400 focus:ring-1 focus:ring-violet-300 disabled:cursor-not-allowed disabled:opacity-60 max-w-[200px]"
+            >
+              <option value="">— Unassigned —</option>
+              {warehouses.map((w) => (
+                <option key={w.id} value={w.id}>
+                  {w.name}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
+      </td>
+      <td className="px-4 py-3">
+        {r.active ? (
+          <span className="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">ACTIVE</span>
+        ) : (
+          <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">INACTIVE</span>
+        )}
+      </td>
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => onEdit(r)}
+            className="flex items-center gap-1 rounded-md border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:border-violet-400 hover:text-violet-700 transition-colors"
+          >
+            <Pencil className="h-3 w-3" />
+            Edit
+          </button>
+          <button
+            onClick={() => onToggleActive(r)}
+            className={clsx(
+              'flex items-center gap-1 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
+              r.active
+                ? 'border-red-200 text-red-500 hover:border-red-400 hover:text-red-700'
+                : 'border-green-200 text-green-600 hover:border-green-400 hover:text-green-700',
+            )}
+          >
+            <X className="h-3 w-3" />
+            {r.active ? 'Deactivate' : 'Activate'}
+          </button>
+        </div>
+      </td>
+    </tr>
+  )
+}
+
 export function RidersView() {
   const [riders, setRiders] = useState<Rider[]>([])
   const [warehouses, setWarehouses] = useState<Warehouse[]>([])
@@ -26,8 +177,10 @@ export function RidersView() {
   const [form, setForm] = useState<RiderForm>(EMPTY_FORM)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [newRiderWarehouseId, setNewRiderWarehouseId] = useState<string | null>(null)
 
   const [assigningId, setAssigningId] = useState<string | null>(null)
+  const [unassignedOpen, setUnassignedOpen] = useState(false)
 
   async function fetchRiders() {
     setLoading(true)
@@ -45,10 +198,11 @@ export function RidersView() {
 
   useEffect(() => { fetchRiders() }, [showInactive])
 
-  function openAdd() {
+  function openAddForWarehouse(warehouseId: string) {
     setEditing(null)
     setForm(EMPTY_FORM)
     setError(null)
+    setNewRiderWarehouseId(warehouseId)
     setModalOpen(true)
   }
 
@@ -56,6 +210,7 @@ export function RidersView() {
     setEditing(r)
     setForm(riderToForm(r))
     setError(null)
+    setNewRiderWarehouseId(null)
     setModalOpen(true)
   }
 
@@ -64,6 +219,7 @@ export function RidersView() {
     setEditing(null)
     setForm(EMPTY_FORM)
     setError(null)
+    setNewRiderWarehouseId(null)
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -75,6 +231,7 @@ export function RidersView() {
         name: form.name,
         phone: form.phone || null,
         vehicleNumber: form.vehicleNumber || null,
+        ...(editing ? {} : { warehouseId: newRiderWarehouseId || null }),
       }
       const res = editing
         ? await fetch(`/riders/${editing.id}`, {
@@ -123,127 +280,154 @@ export function RidersView() {
 
   const activeWarehouses = warehouses.filter((w) => w.active)
 
+  // Group riders by warehouseId
+  const ridersByWarehouse = new Map<string, Rider[]>()
+  const unassignedRiders: Rider[] = []
+
+  for (const rider of riders) {
+    if (!rider.warehouseId) {
+      unassignedRiders.push(rider)
+    } else {
+      const group = ridersByWarehouse.get(rider.warehouseId) ?? []
+      group.push(rider)
+      ridersByWarehouse.set(rider.warehouseId, group)
+    }
+  }
+
+  const sharedRowProps = {
+    warehouses: activeWarehouses,
+    assigningId,
+    onEdit: openEdit,
+    onToggleActive: handleToggleActive,
+    onAssignWarehouse: handleAssignWarehouse,
+  }
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-6">
-      <div className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <h1 className="text-2xl font-bold text-gray-900">Riders</h1>
-          <label className="flex items-center gap-1.5 text-sm text-gray-500 cursor-pointer select-none">
-            <input
-              type="checkbox"
-              checked={showInactive}
-              onChange={(e) => setShowInactive(e.target.checked)}
-              className="rounded border-gray-300 text-violet-600 focus:ring-violet-500"
-            />
-            Show inactive
-          </label>
-        </div>
-        <button
-          onClick={openAdd}
-          className="flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-700 transition-colors"
-        >
-          <Plus className="h-4 w-4" />
-          Add Rider
-        </button>
+      {/* Page header */}
+      <div className="mb-6 flex items-center gap-3">
+        <h1 className="text-2xl font-bold text-gray-900">Riders</h1>
+        <label className="flex items-center gap-1.5 text-sm text-gray-500 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={showInactive}
+            onChange={(e) => setShowInactive(e.target.checked)}
+            className="rounded border-gray-300 text-violet-600 focus:ring-violet-500"
+          />
+          Show inactive
+        </label>
       </div>
 
-      <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-        {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="h-6 w-6 animate-spin text-violet-500" />
-          </div>
-        ) : (
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50 border-b border-gray-100">
-              <tr>
-                {['Rider', 'Phone', 'Vehicle', 'Dark Store', 'Status', 'Actions'].map((h) => (
-                  <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-50">
-              {riders.map((r) => (
-                <tr key={r.id} className={clsx('hover:bg-violet-50', !r.active && 'opacity-50')}>
-                  <td className="px-4 py-3">
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100">
-                        <Bike className="h-4 w-4 text-emerald-600" />
-                      </div>
-                      <span className="font-medium text-gray-800">{r.name}</span>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 text-gray-500 font-mono text-xs">
-                    {r.phone ?? <span className="text-gray-300">—</span>}
-                  </td>
-                  <td className="px-4 py-3 text-gray-500 font-mono text-xs">
-                    {r.vehicleNumber ?? <span className="text-gray-300">—</span>}
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="relative">
-                      {assigningId === r.id ? (
-                        <Loader2 className="h-4 w-4 animate-spin text-violet-400" />
-                      ) : (
-                        <select
-                          value={r.warehouseId ?? ''}
-                          onChange={(e) => handleAssignWarehouse(r, e.target.value)}
-                          disabled={!r.active}
-                          className="rounded-lg border border-gray-200 bg-white px-2.5 py-1.5 text-xs text-gray-700 outline-none focus:border-violet-400 focus:ring-1 focus:ring-violet-300 disabled:cursor-not-allowed disabled:opacity-60 max-w-[180px]"
-                        >
-                          <option value="">— Unassigned —</option>
-                          {activeWarehouses.map((w) => (
-                            <option key={w.id} value={w.id}>
-                              {w.name}
-                            </option>
-                          ))}
-                        </select>
-                      )}
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    {r.active ? (
-                      <span className="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">ACTIVE</span>
-                    ) : (
-                      <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">INACTIVE</span>
-                    )}
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => openEdit(r)}
-                        className="flex items-center gap-1 rounded-md border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:border-violet-400 hover:text-violet-700 transition-colors"
-                      >
-                        <Pencil className="h-3 w-3" />
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleToggleActive(r)}
-                        className={clsx(
-                          'flex items-center gap-1 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
-                          r.active
-                            ? 'border-red-200 text-red-500 hover:border-red-400 hover:text-red-700'
-                            : 'border-green-200 text-green-600 hover:border-green-400 hover:text-green-700',
-                        )}
-                      >
-                        <X className="h-3 w-3" />
-                        {r.active ? 'Deactivate' : 'Activate'}
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-              {riders.length === 0 && (
-                <tr>
-                  <td colSpan={6} className="px-4 py-12 text-center text-gray-400">
-                    No riders found
-                  </td>
-                </tr>
+      {loading ? (
+        <div className="flex items-center justify-center py-20">
+          <Loader2 className="h-6 w-6 animate-spin text-violet-500" />
+        </div>
+      ) : (
+        <>
+          {/* Per-warehouse cards */}
+          {activeWarehouses.map((warehouse) => {
+            const warehouseRiders = ridersByWarehouse.get(warehouse.id) ?? []
+            return (
+              <div
+                key={warehouse.id}
+                className="rounded-xl border border-gray-200 bg-white shadow-sm mb-4 overflow-hidden"
+              >
+                {/* Card header */}
+                <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+                  <div className="flex items-center gap-3">
+                    <span className="font-bold text-gray-900">{warehouse.name}</span>
+                    <span className="text-sm text-gray-400">{warehouse.city}</span>
+                    <span className="text-xs font-semibold text-violet-700 bg-violet-100 px-2 py-0.5 rounded-full">
+                      {warehouseRiders.length} {warehouseRiders.length === 1 ? 'rider' : 'riders'}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => openAddForWarehouse(warehouse.id)}
+                    className="flex items-center gap-1.5 rounded-lg bg-violet-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-violet-700 transition-colors"
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                    Add Rider
+                  </button>
+                </div>
+
+                {/* Riders table */}
+                {warehouseRiders.length === 0 ? (
+                  <div className="px-5 py-8 text-center text-sm text-gray-400">
+                    No riders assigned to this dark store
+                  </div>
+                ) : (
+                  <table className="w-full text-sm">
+                    <thead className="bg-gray-50 border-b border-gray-100">
+                      <tr>
+                        {['Rider', 'Phone', 'Vehicle', 'Status', 'Actions'].map((h) => (
+                          <th
+                            key={h}
+                            className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                          >
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-50">
+                      {warehouseRiders.map((r) => (
+                        <RiderRow key={r.id} r={r} {...sharedRowProps} />
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </div>
+            )
+          })}
+
+          {/* Unassigned riders — collapsible */}
+          <div className="rounded-xl border border-gray-200 bg-white shadow-sm mb-4 overflow-hidden">
+            <button
+              type="button"
+              onClick={() => setUnassignedOpen((v) => !v)}
+              className="w-full flex items-center gap-3 px-5 py-4 text-left hover:bg-gray-50 transition-colors"
+            >
+              {unassignedOpen ? (
+                <ChevronDown className="h-4 w-4 text-gray-400 shrink-0" />
+              ) : (
+                <ChevronRight className="h-4 w-4 text-gray-400 shrink-0" />
               )}
-            </tbody>
-          </table>
-        )}
-      </div>
+              <span className="font-bold text-gray-700">Unassigned Riders</span>
+              <span className="text-xs font-semibold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                {unassignedRiders.length}
+              </span>
+            </button>
+
+            {unassignedOpen && (
+              unassignedRiders.length === 0 ? (
+                <div className="px-5 py-8 text-center text-sm text-gray-400 border-t border-gray-100">
+                  No unassigned riders
+                </div>
+              ) : (
+                <table className="w-full text-sm border-t border-gray-100">
+                  <thead className="bg-gray-50 border-b border-gray-100">
+                    <tr>
+                      {['Rider', 'Phone', 'Vehicle', 'Assign to Dark Store', 'Status', 'Actions'].map((h) => (
+                        <th
+                          key={h}
+                          className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-50">
+                    {unassignedRiders.map((r) => (
+                      <UnassignedRiderRow key={r.id} r={r} {...sharedRowProps} />
+                    ))}
+                  </tbody>
+                </table>
+              )
+            )}
+          </div>
+        </>
+      )}
 
       {/* Create / Edit modal */}
       {modalOpen && (
@@ -253,7 +437,10 @@ export function RidersView() {
               <h2 className="text-base font-semibold text-gray-900">
                 {editing ? 'Edit Rider' : 'Add Rider'}
               </h2>
-              <button onClick={closeModal} className="rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors">
+              <button
+                onClick={closeModal}
+                className="rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"
+              >
                 <X className="h-4 w-4" />
               </button>
             </div>

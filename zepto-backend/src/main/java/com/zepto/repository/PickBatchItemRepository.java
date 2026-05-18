@@ -14,4 +14,6 @@ public interface PickBatchItemRepository extends JpaRepository<PickBatchItem, UU
     @Query("SELECT DISTINCT i.zoneType FROM PickBatchItem i WHERE i.batch.warehouse.id = :warehouseId " +
            "AND i.picked = false AND i.batch.status <> com.zepto.entity.enums.BatchStatus.COMPLETE")
     List<com.zepto.entity.enums.ZoneType> findActiveZoneTypes(@Param("warehouseId") UUID warehouseId);
+
+    void deleteByBatchIdIn(java.util.Collection<UUID> batchIds);
 }

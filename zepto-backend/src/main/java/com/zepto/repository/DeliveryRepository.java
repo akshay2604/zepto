@@ -16,4 +16,6 @@ public interface DeliveryRepository extends JpaRepository<Delivery, UUID> {
 
     @Query("SELECT AVG(d.deliveryTimeSecs), COUNT(d) FROM Delivery d WHERE d.deliveryTimeSecs IS NOT NULL")
     List<Object[]> findAvgDeliveryTimeStats();
+
+    void deleteByOrderIdIn(java.util.Collection<UUID> orderIds);
 }

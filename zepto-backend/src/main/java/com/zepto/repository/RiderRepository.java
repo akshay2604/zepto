@@ -10,4 +10,6 @@ public interface RiderRepository extends JpaRepository<Rider, UUID> {
     List<Rider> findByActiveTrueOrderByNameAsc();
     List<Rider> findAllByOrderByNameAsc();
     List<Rider> findByWarehouseIdAndActiveTrueOrderByNameAsc(UUID warehouseId);
+    List<Rider> findByWarehouseId(UUID warehouseId);
+    void deleteByWarehouseId(UUID warehouseId);
 }
