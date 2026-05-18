@@ -166,6 +166,7 @@ public class SeedDataService {
                 .mrp(mrp)
                 .sellingPrice(sellingPrice)
                 .available(true)
+                .imageUrl(product.getImageUrl())
                 .build());
     }
 

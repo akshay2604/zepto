@@ -7,6 +7,7 @@
           "name": "Amul Toned Milk",
           "brand": "Amul",
           "description": "Fresh toned milk, 3% fat",
+          "imageUrl": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "200ml", "unit": "ml", "mrp": 22.00 },
             { "packSize": "500ml", "unit": "ml", "mrp": 50.00 },
@@ -17,6 +18,7 @@
           "name": "Amul Gold Full Cream Milk",
           "brand": "Amul",
           "description": "Full cream milk, 6% fat",
+          "imageUrl": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500ml", "unit": "ml", "mrp": 56.00 },
             { "packSize": "1L",    "unit": "ml", "mrp": 105.00 }
@@ -26,6 +28,7 @@
           "name": "Nandini Curd",
           "brand": "Nandini",
           "description": "Fresh probiotic curd",
+          "imageUrl": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "200g", "unit": "g", "mrp": 30.00 },
             { "packSize": "400g", "unit": "g", "mrp": 58.00 },
@@ -36,6 +39,7 @@
           "name": "Mother Dairy Paneer",
           "brand": "Mother Dairy",
           "description": "Fresh soft paneer",
+          "imageUrl": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "200g", "unit": "g", "mrp": 75.00 },
             { "packSize": "500g", "unit": "g", "mrp": 180.00 }
@@ -45,6 +49,7 @@
           "name": "Amul Butter",
           "brand": "Amul",
           "description": "Pasteurised butter, salted",
+          "imageUrl": "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "100g", "unit": "g", "mrp": 55.00 },
             { "packSize": "500g", "unit": "g", "mrp": 260.00 }
@@ -54,6 +59,7 @@
           "name": "Britannia Cheese Slices",
           "brand": "Britannia",
           "description": "Processed cheese slices",
+          "imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "7 slices",  "unit": "pcs", "mrp": 95.00 },
             { "packSize": "14 slices", "unit": "pcs", "mrp": 185.00 }
@@ -63,6 +69,7 @@
           "name": "Farm Eggs",
           "brand": "Suguna",
           "description": "Fresh farm eggs, white",
+          "imageUrl": "https://images.unsplash.com/photo-1518569656558-1f25e69d2226?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "6 pcs",  "unit": "pcs", "mrp": 62.00 },
             { "packSize": "12 pcs", "unit": "pcs", "mrp": 120.00 }
@@ -77,6 +84,7 @@
           "name": "Fresh Tomatoes",
           "brand": "Farm Fresh",
           "description": "Locally sourced hybrid tomatoes",
+          "imageUrl": "https://images.unsplash.com/photo-1561136594-7f68af8aa703?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500g", "unit": "g", "mrp": 35.00 },
             { "packSize": "1kg",  "unit": "g", "mrp": 65.00 }
@@ -86,6 +94,7 @@
           "name": "Onions",
           "brand": "Farm Fresh",
           "description": "Red onions, Nashik variety",
+          "imageUrl": "https://images.unsplash.com/photo-1618512496-b13d6b3ade17?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500g", "unit": "g", "mrp": 25.00 },
             { "packSize": "1kg",  "unit": "g", "mrp": 45.00 },
@@ -96,6 +105,7 @@
           "name": "Bananas",
           "brand": "Farm Fresh",
           "description": "Robusta bananas, ripe",
+          "imageUrl": "https://images.unsplash.com/photo-1571771894583-25b0079a884b?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "6 pcs",  "unit": "pcs", "mrp": 35.00 },
             { "packSize": "12 pcs", "unit": "pcs", "mrp": 65.00 }
@@ -105,6 +115,7 @@
           "name": "Potatoes",
           "brand": "Farm Fresh",
           "description": "Fresh washed potatoes",
+          "imageUrl": "https://images.unsplash.com/photo-1518977676884-62e529cd18c6?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500g", "unit": "g", "mrp": 30.00 },
             { "packSize": "1kg",  "unit": "g", "mrp": 55.00 },
@@ -115,6 +126,7 @@
           "name": "Fresh Spinach",
           "brand": "Farm Fresh",
           "description": "Tender baby spinach leaves",
+          "imageUrl": "https://images.unsplash.com/photo-1576045057-1491af0c1aa8?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "250g", "unit": "g", "mrp": 20.00 },
             { "packSize": "500g", "unit": "g", "mrp": 35.00 }
@@ -124,6 +136,7 @@
           "name": "Green Chillies",
           "brand": "Farm Fresh",
           "description": "Hot green chillies",
+          "imageUrl": "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "100g", "unit": "g", "mrp": 15.00 },
             { "packSize": "200g", "unit": "g", "mrp": 28.00 }
@@ -133,6 +146,7 @@
           "name": "Apples",
           "brand": "Himalayan Fresh",
           "description": "Shimla apples, medium size",
+          "imageUrl": "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "4 pcs", "unit": "pcs", "mrp": 80.00 },
             { "packSize": "6 pcs", "unit": "pcs", "mrp": 115.00 }
@@ -142,6 +156,7 @@
           "name": "Lemons",
           "brand": "Farm Fresh",
           "description": "Seedless lemon, Kagzi variety",
+          "imageUrl": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "4 pcs", "unit": "pcs", "mrp": 20.00 },
             { "packSize": "8 pcs", "unit": "pcs", "mrp": 38.00 }
@@ -156,6 +171,7 @@
           "name": "Haldirams Aloo Bhujia",
           "brand": "Haldirams",
           "description": "Crispy potato bhujia namkeen",
+          "imageUrl": "https://images.unsplash.com/photo-1599490669248-a4f9f24ca9d5?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "200g", "unit": "g", "mrp": 80.00 },
             { "packSize": "500g", "unit": "g", "mrp": 180.00 }
@@ -165,6 +181,7 @@
           "name": "Britannia Good Day Butter Cookies",
           "brand": "Britannia",
           "description": "Crispy butter biscuits",
+          "imageUrl": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "75g",  "unit": "g", "mrp": 30.00 },
             { "packSize": "150g", "unit": "g", "mrp": 55.00 }
@@ -174,6 +191,7 @@
           "name": "Parle-G Original Biscuits",
           "brand": "Parle",
           "description": "Glucose biscuits, original",
+          "imageUrl": "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "100g", "unit": "g", "mrp": 10.00 },
             { "packSize": "250g", "unit": "g", "mrp": 25.00 }
@@ -183,6 +201,7 @@
           "name": "Lays Classic Salted",
           "brand": "PepsiCo",
           "description": "Thin crispy potato chips",
+          "imageUrl": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "26g", "unit": "g", "mrp": 20.00 },
             { "packSize": "52g", "unit": "g", "mrp": 35.00 }
@@ -192,6 +211,7 @@
           "name": "Kurkure Masala Munch",
           "brand": "PepsiCo",
           "description": "Crunchy masala corn snack",
+          "imageUrl": "https://images.unsplash.com/photo-1585703900468-13cd91571a8c?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "50g", "unit": "g", "mrp": 20.00 },
             { "packSize": "90g", "unit": "g", "mrp": 35.00 }
@@ -201,6 +221,7 @@
           "name": "Oreo Original Cookies",
           "brand": "Mondelez",
           "description": "Chocolate sandwich cookies",
+          "imageUrl": "https://images.unsplash.com/photo-1549477648-d31929e0cf9b?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "120g", "unit": "g", "mrp": 50.00 },
             { "packSize": "300g", "unit": "g", "mrp": 120.00 }
@@ -215,6 +236,7 @@
           "name": "Paperboat Aam Panna",
           "brand": "Paperboat",
           "description": "Raw mango drink with spices",
+          "imageUrl": "https://images.unsplash.com/photo-1622597789577-db01dda44e31?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "200ml", "unit": "ml", "mrp": 25.00 },
             { "packSize": "1L",    "unit": "ml", "mrp": 100.00 }
@@ -224,6 +246,7 @@
           "name": "Red Bull Energy Drink",
           "brand": "Red Bull",
           "description": "Energy drink with taurine",
+          "imageUrl": "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "250ml", "unit": "ml", "mrp": 130.00 },
             { "packSize": "355ml", "unit": "ml", "mrp": 180.00 }
@@ -233,6 +256,7 @@
           "name": "Bisleri Mineral Water",
           "brand": "Bisleri",
           "description": "Packaged drinking water",
+          "imageUrl": "https://images.unsplash.com/photo-1548780460-cc4e4f3ab374?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500ml", "unit": "ml", "mrp": 15.00 },
             { "packSize": "1L",    "unit": "ml", "mrp": 25.00 }
@@ -242,6 +266,7 @@
           "name": "Tropicana 100% Orange Juice",
           "brand": "PepsiCo",
           "description": "Pure squeezed orange juice",
+          "imageUrl": "https://images.unsplash.com/photo-1621506289944-1e5b3a36f18d?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "200ml", "unit": "ml", "mrp": 30.00 },
             { "packSize": "1L",    "unit": "ml", "mrp": 110.00 }
@@ -251,6 +276,7 @@
           "name": "Nescafe Classic Instant Coffee",
           "brand": "Nestlé",
           "description": "100% pure instant coffee",
+          "imageUrl": "https://images.unsplash.com/photo-1495474472359-6b7e22b2c6c3?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "50g",  "unit": "g", "mrp": 165.00 },
             { "packSize": "100g", "unit": "g", "mrp": 310.00 },
@@ -261,6 +287,7 @@
           "name": "Lipton Green Tea",
           "brand": "Lipton",
           "description": "100% natural green tea bags",
+          "imageUrl": "https://images.unsplash.com/photo-1556679908-ec89dbc5f6d6?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "25 bags", "unit": "pcs", "mrp": 90.00 },
             { "packSize": "50 bags", "unit": "pcs", "mrp": 170.00 }
@@ -275,6 +302,7 @@
           "name": "Aashirvaad Whole Wheat Atta",
           "brand": "ITC",
           "description": "Whole wheat flour, stone-ground",
+          "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "1kg", "unit": "kg", "mrp": 65.00 },
             { "packSize": "5kg", "unit": "kg", "mrp": 295.00 }
@@ -284,6 +312,7 @@
           "name": "India Gate Classic Basmati Rice",
           "brand": "KRBL",
           "description": "Aged Basmati rice, long grain",
+          "imageUrl": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "1kg", "unit": "kg", "mrp": 115.00 },
             { "packSize": "5kg", "unit": "kg", "mrp": 545.00 }
@@ -293,6 +322,7 @@
           "name": "Tata Salt",
           "brand": "Tata Consumer",
           "description": "Iodised vacuum evaporated salt",
+          "imageUrl": "https://images.unsplash.com/photo-1624300629298-e9dedba01dbc?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "1kg", "unit": "kg", "mrp": 28.00 }
           ]
@@ -301,6 +331,7 @@
           "name": "Fortune Sunflower Oil",
           "brand": "Adani Wilmar",
           "description": "Refined sunflower cooking oil",
+          "imageUrl": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500ml", "unit": "ml", "mrp": 75.00 },
             { "packSize": "1L",    "unit": "ml", "mrp": 145.00 }
@@ -310,6 +341,7 @@
           "name": "Tata Sampann Toor Dal",
           "brand": "Tata Consumer",
           "description": "Unpolished toor dal",
+          "imageUrl": "https://images.unsplash.com/photo-1585996923779-0f0a44be1bac?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500g", "unit": "g", "mrp": 75.00 },
             { "packSize": "1kg",  "unit": "g", "mrp": 145.00 }
@@ -319,6 +351,7 @@
           "name": "MTR Sambar Powder",
           "brand": "MTR",
           "description": "Authentic Karnataka sambar masala",
+          "imageUrl": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "100g", "unit": "g", "mrp": 58.00 },
             { "packSize": "200g", "unit": "g", "mrp": 110.00 }
@@ -333,6 +366,7 @@
           "name": "Dove Beauty Soap",
           "brand": "Unilever",
           "description": "Moisturising beauty bar",
+          "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "75g",  "unit": "g", "mrp": 48.00 },
             { "packSize": "150g", "unit": "g", "mrp": 90.00 }
@@ -342,6 +376,7 @@
           "name": "Colgate StrongTeeth Toothpaste",
           "brand": "Colgate",
           "description": "Cavity protection toothpaste",
+          "imageUrl": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "100g", "unit": "g", "mrp": 60.00 },
             { "packSize": "200g", "unit": "g", "mrp": 110.00 }
@@ -351,6 +386,7 @@
           "name": "Head & Shoulders Anti-Dandruff Shampoo",
           "brand": "P&G",
           "description": "Classic clean anti-dandruff formula",
+          "imageUrl": "https://images.unsplash.com/photo-1571781565036-d3f759be73e4?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "180ml", "unit": "ml", "mrp": 180.00 },
             { "packSize": "340ml", "unit": "ml", "mrp": 320.00 }
@@ -360,6 +396,7 @@
           "name": "Himalaya Neem Face Wash",
           "brand": "Himalaya",
           "description": "Purifying neem face wash",
+          "imageUrl": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "50ml",  "unit": "ml", "mrp": 80.00 },
             { "packSize": "100ml", "unit": "ml", "mrp": 145.00 }
@@ -369,6 +406,7 @@
           "name": "Dettol Original Handwash",
           "brand": "Reckitt",
           "description": "Antibacterial liquid handwash",
+          "imageUrl": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "200ml", "unit": "ml", "mrp": 80.00 },
             { "packSize": "500ml", "unit": "ml", "mrp": 180.00 }
@@ -383,6 +421,7 @@
           "name": "Surf Excel Matic Liquid",
           "brand": "Unilever",
           "description": "Front-load washing machine liquid",
+          "imageUrl": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500ml", "unit": "ml", "mrp": 155.00 },
             { "packSize": "1L",    "unit": "ml", "mrp": 295.00 }
@@ -392,6 +431,7 @@
           "name": "Harpic Power Plus",
           "brand": "Reckitt",
           "description": "Thick bleach toilet cleaner",
+          "imageUrl": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500ml", "unit": "ml", "mrp": 110.00 },
             { "packSize": "1L",    "unit": "ml", "mrp": 200.00 }
@@ -401,6 +441,7 @@
           "name": "Vim Dishwash Bar",
           "brand": "Unilever",
           "description": "Lemon dishwash bar",
+          "imageUrl": "https://images.unsplash.com/photo-1585651923645-eca3b1bfb08e?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "75g",  "unit": "g", "mrp": 12.00 },
             { "packSize": "150g", "unit": "g", "mrp": 22.00 },
@@ -411,6 +452,7 @@
           "name": "Domex Fresh Guard",
           "brand": "Unilever",
           "description": "Multipurpose floor cleaner",
+          "imageUrl": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "500ml", "unit": "ml", "mrp": 90.00 },
             { "packSize": "1L",    "unit": "ml", "mrp": 165.00 }
@@ -425,6 +467,7 @@
           "name": "MTR Upma Ready Mix",
           "brand": "MTR",
           "description": "Instant upma breakfast mix",
+          "imageUrl": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "200g", "unit": "g", "mrp": 65.00 },
             { "packSize": "500g", "unit": "g", "mrp": 150.00 }
@@ -434,6 +477,7 @@
           "name": "Maggi 2-Minute Noodles",
           "brand": "Nestlé",
           "description": "Masala noodles, instant",
+          "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "70g single",   "unit": "g",   "mrp": 15.00 },
             { "packSize": "4-pack 280g",  "unit": "pack", "mrp": 56.00 }
@@ -443,6 +487,7 @@
           "name": "Haldirams Dal Makhani",
           "brand": "Haldirams",
           "description": "Ready to eat dal makhani",
+          "imageUrl": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "285g", "unit": "g", "mrp": 115.00 }
           ]
@@ -451,6 +496,7 @@
           "name": "iD Fresh Idli & Dosa Batter",
           "brand": "iD Fresh",
           "description": "Fresh fermented batter, same-day delivery",
+          "imageUrl": "https://images.unsplash.com/photo-1630409351241-e90e7f6b3c5d?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "900g", "unit": "g", "mrp": 75.00 }
           ]
@@ -459,6 +505,7 @@
           "name": "Tasty Bite Paneer Makhani",
           "brand": "Tasty Bite",
           "description": "Ready to eat paneer curry",
+          "imageUrl": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=400&fit=crop&auto=format",
           "skus": [
             { "packSize": "285g", "unit": "g", "mrp": 125.00 }
           ]
