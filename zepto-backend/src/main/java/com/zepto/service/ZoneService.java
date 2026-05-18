@@ -43,8 +43,7 @@ public class ZoneService {
         Map<ZoneType, Set<UUID>> zoneOrders = new EnumMap<>(ZoneType.class);
         for (com.zepto.entity.Order order : confirmed) {
             orderItemRepository.findByOrderId(order.getId()).forEach(item -> {
-                String catName = item.getVariant().getProduct().getCategory().getName();
-                ZoneType zone  = zoneResolver.resolve(catName);
+                ZoneType zone = zoneResolver.resolve(item.getVariant().getProduct().getCategory());
                 zoneOrders.computeIfAbsent(zone, k -> new HashSet<>()).add(order.getId());
             });
         }

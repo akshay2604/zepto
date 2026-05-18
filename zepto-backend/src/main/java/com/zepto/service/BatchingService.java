@@ -58,7 +58,7 @@ public class BatchingService {
             List<OrderItem> items = orderItemRepository.findByOrderId(order.getId());
             orderItems.put(order.getId(), items);
             Set<ZoneType> zones = items.stream()
-                    .map(i -> zoneResolver.resolve(i.getVariant().getProduct().getCategory().getName()))
+                    .map(i -> zoneResolver.resolve(i.getVariant().getProduct().getCategory()))
                     .collect(Collectors.toCollection(() -> EnumSet.noneOf(ZoneType.class)));
             orderZones.put(order.getId(), zones);
         }
@@ -122,7 +122,7 @@ public class BatchingService {
         List<SortableItem> sortable = new ArrayList<>();
         for (Order order : orders) {
             for (OrderItem item : orderItemsMap.get(order.getId())) {
-                ZoneType zone = zoneResolver.resolve(item.getVariant().getProduct().getCategory().getName());
+                ZoneType zone = zoneResolver.resolve(item.getVariant().getProduct().getCategory());
                 sortable.add(new SortableItem(zone, item.getVariant().getSkuCode(), order, item));
             }
         }

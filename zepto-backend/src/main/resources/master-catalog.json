@@ -2,6 +2,7 @@
   "categories": [
     {
       "name": "Dairy & Eggs",
+      "zoneType": "CHILLED",
       "products": [
         {
           "name": "Amul Toned Milk",
@@ -9,9 +10,21 @@
           "description": "Fresh toned milk, 3% fat",
           "imageUrl": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "200ml", "unit": "ml", "mrp": 22.00 },
-            { "packSize": "500ml", "unit": "ml", "mrp": 50.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 90.00 }
+            {
+              "packSize": "200ml",
+              "unit": "ml",
+              "mrp": 22.0
+            },
+            {
+              "packSize": "500ml",
+              "unit": "ml",
+              "mrp": 50.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 90.0
+            }
           ]
         },
         {
@@ -20,8 +33,16 @@
           "description": "Full cream milk, 6% fat",
           "imageUrl": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500ml", "unit": "ml", "mrp": 56.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 105.00 }
+            {
+              "packSize": "500ml",
+              "unit": "ml",
+              "mrp": 56.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 105.0
+            }
           ]
         },
         {
@@ -30,9 +51,21 @@
           "description": "Fresh probiotic curd",
           "imageUrl": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "200g", "unit": "g", "mrp": 30.00 },
-            { "packSize": "400g", "unit": "g", "mrp": 58.00 },
-            { "packSize": "1kg",  "unit": "g", "mrp": 130.00 }
+            {
+              "packSize": "200g",
+              "unit": "g",
+              "mrp": 30.0
+            },
+            {
+              "packSize": "400g",
+              "unit": "g",
+              "mrp": 58.0
+            },
+            {
+              "packSize": "1kg",
+              "unit": "g",
+              "mrp": 130.0
+            }
           ]
         },
         {
@@ -41,8 +74,16 @@
           "description": "Fresh soft paneer",
           "imageUrl": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "200g", "unit": "g", "mrp": 75.00 },
-            { "packSize": "500g", "unit": "g", "mrp": 180.00 }
+            {
+              "packSize": "200g",
+              "unit": "g",
+              "mrp": 75.0
+            },
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 180.0
+            }
           ]
         },
         {
@@ -51,8 +92,16 @@
           "description": "Pasteurised butter, salted",
           "imageUrl": "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "100g", "unit": "g", "mrp": 55.00 },
-            { "packSize": "500g", "unit": "g", "mrp": 260.00 }
+            {
+              "packSize": "100g",
+              "unit": "g",
+              "mrp": 55.0
+            },
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 260.0
+            }
           ]
         },
         {
@@ -61,8 +110,16 @@
           "description": "Processed cheese slices",
           "imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "7 slices",  "unit": "pcs", "mrp": 95.00 },
-            { "packSize": "14 slices", "unit": "pcs", "mrp": 185.00 }
+            {
+              "packSize": "7 slices",
+              "unit": "pcs",
+              "mrp": 95.0
+            },
+            {
+              "packSize": "14 slices",
+              "unit": "pcs",
+              "mrp": 185.0
+            }
           ]
         },
         {
@@ -71,14 +128,23 @@
           "description": "Fresh farm eggs, white",
           "imageUrl": "https://images.unsplash.com/photo-1518569656558-1f25e69d2226?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "6 pcs",  "unit": "pcs", "mrp": 62.00 },
-            { "packSize": "12 pcs", "unit": "pcs", "mrp": 120.00 }
+            {
+              "packSize": "6 pcs",
+              "unit": "pcs",
+              "mrp": 62.0
+            },
+            {
+              "packSize": "12 pcs",
+              "unit": "pcs",
+              "mrp": 120.0
+            }
           ]
         }
       ]
     },
     {
       "name": "Fruits & Vegetables",
+      "zoneType": "PRODUCE",
       "products": [
         {
           "name": "Fresh Tomatoes",
@@ -86,8 +152,16 @@
           "description": "Locally sourced hybrid tomatoes",
           "imageUrl": "https://images.unsplash.com/photo-1561136594-7f68af8aa703?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500g", "unit": "g", "mrp": 35.00 },
-            { "packSize": "1kg",  "unit": "g", "mrp": 65.00 }
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 35.0
+            },
+            {
+              "packSize": "1kg",
+              "unit": "g",
+              "mrp": 65.0
+            }
           ]
         },
         {
@@ -96,9 +170,21 @@
           "description": "Red onions, Nashik variety",
           "imageUrl": "https://images.unsplash.com/photo-1618512496-b13d6b3ade17?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500g", "unit": "g", "mrp": 25.00 },
-            { "packSize": "1kg",  "unit": "g", "mrp": 45.00 },
-            { "packSize": "2kg",  "unit": "g", "mrp": 85.00 }
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 25.0
+            },
+            {
+              "packSize": "1kg",
+              "unit": "g",
+              "mrp": 45.0
+            },
+            {
+              "packSize": "2kg",
+              "unit": "g",
+              "mrp": 85.0
+            }
           ]
         },
         {
@@ -107,8 +193,16 @@
           "description": "Robusta bananas, ripe",
           "imageUrl": "https://images.unsplash.com/photo-1571771894583-25b0079a884b?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "6 pcs",  "unit": "pcs", "mrp": 35.00 },
-            { "packSize": "12 pcs", "unit": "pcs", "mrp": 65.00 }
+            {
+              "packSize": "6 pcs",
+              "unit": "pcs",
+              "mrp": 35.0
+            },
+            {
+              "packSize": "12 pcs",
+              "unit": "pcs",
+              "mrp": 65.0
+            }
           ]
         },
         {
@@ -117,9 +211,21 @@
           "description": "Fresh washed potatoes",
           "imageUrl": "https://images.unsplash.com/photo-1518977676884-62e529cd18c6?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500g", "unit": "g", "mrp": 30.00 },
-            { "packSize": "1kg",  "unit": "g", "mrp": 55.00 },
-            { "packSize": "2kg",  "unit": "g", "mrp": 100.00 }
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 30.0
+            },
+            {
+              "packSize": "1kg",
+              "unit": "g",
+              "mrp": 55.0
+            },
+            {
+              "packSize": "2kg",
+              "unit": "g",
+              "mrp": 100.0
+            }
           ]
         },
         {
@@ -128,8 +234,16 @@
           "description": "Tender baby spinach leaves",
           "imageUrl": "https://images.unsplash.com/photo-1576045057-1491af0c1aa8?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "250g", "unit": "g", "mrp": 20.00 },
-            { "packSize": "500g", "unit": "g", "mrp": 35.00 }
+            {
+              "packSize": "250g",
+              "unit": "g",
+              "mrp": 20.0
+            },
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 35.0
+            }
           ]
         },
         {
@@ -138,8 +252,16 @@
           "description": "Hot green chillies",
           "imageUrl": "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "100g", "unit": "g", "mrp": 15.00 },
-            { "packSize": "200g", "unit": "g", "mrp": 28.00 }
+            {
+              "packSize": "100g",
+              "unit": "g",
+              "mrp": 15.0
+            },
+            {
+              "packSize": "200g",
+              "unit": "g",
+              "mrp": 28.0
+            }
           ]
         },
         {
@@ -148,8 +270,16 @@
           "description": "Shimla apples, medium size",
           "imageUrl": "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "4 pcs", "unit": "pcs", "mrp": 80.00 },
-            { "packSize": "6 pcs", "unit": "pcs", "mrp": 115.00 }
+            {
+              "packSize": "4 pcs",
+              "unit": "pcs",
+              "mrp": 80.0
+            },
+            {
+              "packSize": "6 pcs",
+              "unit": "pcs",
+              "mrp": 115.0
+            }
           ]
         },
         {
@@ -158,14 +288,23 @@
           "description": "Seedless lemon, Kagzi variety",
           "imageUrl": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "4 pcs", "unit": "pcs", "mrp": 20.00 },
-            { "packSize": "8 pcs", "unit": "pcs", "mrp": 38.00 }
+            {
+              "packSize": "4 pcs",
+              "unit": "pcs",
+              "mrp": 20.0
+            },
+            {
+              "packSize": "8 pcs",
+              "unit": "pcs",
+              "mrp": 38.0
+            }
           ]
         }
       ]
     },
     {
       "name": "Snacks & Biscuits",
+      "zoneType": "AMBIENT",
       "products": [
         {
           "name": "Haldirams Aloo Bhujia",
@@ -173,8 +312,16 @@
           "description": "Crispy potato bhujia namkeen",
           "imageUrl": "https://images.unsplash.com/photo-1599490669248-a4f9f24ca9d5?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "200g", "unit": "g", "mrp": 80.00 },
-            { "packSize": "500g", "unit": "g", "mrp": 180.00 }
+            {
+              "packSize": "200g",
+              "unit": "g",
+              "mrp": 80.0
+            },
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 180.0
+            }
           ]
         },
         {
@@ -183,8 +330,16 @@
           "description": "Crispy butter biscuits",
           "imageUrl": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "75g",  "unit": "g", "mrp": 30.00 },
-            { "packSize": "150g", "unit": "g", "mrp": 55.00 }
+            {
+              "packSize": "75g",
+              "unit": "g",
+              "mrp": 30.0
+            },
+            {
+              "packSize": "150g",
+              "unit": "g",
+              "mrp": 55.0
+            }
           ]
         },
         {
@@ -193,8 +348,16 @@
           "description": "Glucose biscuits, original",
           "imageUrl": "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "100g", "unit": "g", "mrp": 10.00 },
-            { "packSize": "250g", "unit": "g", "mrp": 25.00 }
+            {
+              "packSize": "100g",
+              "unit": "g",
+              "mrp": 10.0
+            },
+            {
+              "packSize": "250g",
+              "unit": "g",
+              "mrp": 25.0
+            }
           ]
         },
         {
@@ -203,8 +366,16 @@
           "description": "Thin crispy potato chips",
           "imageUrl": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "26g", "unit": "g", "mrp": 20.00 },
-            { "packSize": "52g", "unit": "g", "mrp": 35.00 }
+            {
+              "packSize": "26g",
+              "unit": "g",
+              "mrp": 20.0
+            },
+            {
+              "packSize": "52g",
+              "unit": "g",
+              "mrp": 35.0
+            }
           ]
         },
         {
@@ -213,8 +384,16 @@
           "description": "Crunchy masala corn snack",
           "imageUrl": "https://images.unsplash.com/photo-1585703900468-13cd91571a8c?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "50g", "unit": "g", "mrp": 20.00 },
-            { "packSize": "90g", "unit": "g", "mrp": 35.00 }
+            {
+              "packSize": "50g",
+              "unit": "g",
+              "mrp": 20.0
+            },
+            {
+              "packSize": "90g",
+              "unit": "g",
+              "mrp": 35.0
+            }
           ]
         },
         {
@@ -223,14 +402,23 @@
           "description": "Chocolate sandwich cookies",
           "imageUrl": "https://images.unsplash.com/photo-1549477648-d31929e0cf9b?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "120g", "unit": "g", "mrp": 50.00 },
-            { "packSize": "300g", "unit": "g", "mrp": 120.00 }
+            {
+              "packSize": "120g",
+              "unit": "g",
+              "mrp": 50.0
+            },
+            {
+              "packSize": "300g",
+              "unit": "g",
+              "mrp": 120.0
+            }
           ]
         }
       ]
     },
     {
       "name": "Beverages",
+      "zoneType": "AMBIENT",
       "products": [
         {
           "name": "Paperboat Aam Panna",
@@ -238,8 +426,16 @@
           "description": "Raw mango drink with spices",
           "imageUrl": "https://images.unsplash.com/photo-1622597789577-db01dda44e31?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "200ml", "unit": "ml", "mrp": 25.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 100.00 }
+            {
+              "packSize": "200ml",
+              "unit": "ml",
+              "mrp": 25.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 100.0
+            }
           ]
         },
         {
@@ -248,8 +444,16 @@
           "description": "Energy drink with taurine",
           "imageUrl": "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "250ml", "unit": "ml", "mrp": 130.00 },
-            { "packSize": "355ml", "unit": "ml", "mrp": 180.00 }
+            {
+              "packSize": "250ml",
+              "unit": "ml",
+              "mrp": 130.0
+            },
+            {
+              "packSize": "355ml",
+              "unit": "ml",
+              "mrp": 180.0
+            }
           ]
         },
         {
@@ -258,8 +462,16 @@
           "description": "Packaged drinking water",
           "imageUrl": "https://images.unsplash.com/photo-1548780460-cc4e4f3ab374?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500ml", "unit": "ml", "mrp": 15.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 25.00 }
+            {
+              "packSize": "500ml",
+              "unit": "ml",
+              "mrp": 15.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 25.0
+            }
           ]
         },
         {
@@ -268,8 +480,16 @@
           "description": "Pure squeezed orange juice",
           "imageUrl": "https://images.unsplash.com/photo-1621506289944-1e5b3a36f18d?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "200ml", "unit": "ml", "mrp": 30.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 110.00 }
+            {
+              "packSize": "200ml",
+              "unit": "ml",
+              "mrp": 30.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 110.0
+            }
           ]
         },
         {
@@ -278,9 +498,21 @@
           "description": "100% pure instant coffee",
           "imageUrl": "https://images.unsplash.com/photo-1495474472359-6b7e22b2c6c3?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "50g",  "unit": "g", "mrp": 165.00 },
-            { "packSize": "100g", "unit": "g", "mrp": 310.00 },
-            { "packSize": "200g", "unit": "g", "mrp": 590.00 }
+            {
+              "packSize": "50g",
+              "unit": "g",
+              "mrp": 165.0
+            },
+            {
+              "packSize": "100g",
+              "unit": "g",
+              "mrp": 310.0
+            },
+            {
+              "packSize": "200g",
+              "unit": "g",
+              "mrp": 590.0
+            }
           ]
         },
         {
@@ -289,14 +521,23 @@
           "description": "100% natural green tea bags",
           "imageUrl": "https://images.unsplash.com/photo-1556679908-ec89dbc5f6d6?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "25 bags", "unit": "pcs", "mrp": 90.00 },
-            { "packSize": "50 bags", "unit": "pcs", "mrp": 170.00 }
+            {
+              "packSize": "25 bags",
+              "unit": "pcs",
+              "mrp": 90.0
+            },
+            {
+              "packSize": "50 bags",
+              "unit": "pcs",
+              "mrp": 170.0
+            }
           ]
         }
       ]
     },
     {
       "name": "Staples & Grains",
+      "zoneType": "AMBIENT",
       "products": [
         {
           "name": "Aashirvaad Whole Wheat Atta",
@@ -304,8 +545,16 @@
           "description": "Whole wheat flour, stone-ground",
           "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "1kg", "unit": "kg", "mrp": 65.00 },
-            { "packSize": "5kg", "unit": "kg", "mrp": 295.00 }
+            {
+              "packSize": "1kg",
+              "unit": "kg",
+              "mrp": 65.0
+            },
+            {
+              "packSize": "5kg",
+              "unit": "kg",
+              "mrp": 295.0
+            }
           ]
         },
         {
@@ -314,8 +563,16 @@
           "description": "Aged Basmati rice, long grain",
           "imageUrl": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "1kg", "unit": "kg", "mrp": 115.00 },
-            { "packSize": "5kg", "unit": "kg", "mrp": 545.00 }
+            {
+              "packSize": "1kg",
+              "unit": "kg",
+              "mrp": 115.0
+            },
+            {
+              "packSize": "5kg",
+              "unit": "kg",
+              "mrp": 545.0
+            }
           ]
         },
         {
@@ -324,7 +581,11 @@
           "description": "Iodised vacuum evaporated salt",
           "imageUrl": "https://images.unsplash.com/photo-1624300629298-e9dedba01dbc?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "1kg", "unit": "kg", "mrp": 28.00 }
+            {
+              "packSize": "1kg",
+              "unit": "kg",
+              "mrp": 28.0
+            }
           ]
         },
         {
@@ -333,8 +594,16 @@
           "description": "Refined sunflower cooking oil",
           "imageUrl": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500ml", "unit": "ml", "mrp": 75.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 145.00 }
+            {
+              "packSize": "500ml",
+              "unit": "ml",
+              "mrp": 75.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 145.0
+            }
           ]
         },
         {
@@ -343,8 +612,16 @@
           "description": "Unpolished toor dal",
           "imageUrl": "https://images.unsplash.com/photo-1585996923779-0f0a44be1bac?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500g", "unit": "g", "mrp": 75.00 },
-            { "packSize": "1kg",  "unit": "g", "mrp": 145.00 }
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 75.0
+            },
+            {
+              "packSize": "1kg",
+              "unit": "g",
+              "mrp": 145.0
+            }
           ]
         },
         {
@@ -353,14 +630,23 @@
           "description": "Authentic Karnataka sambar masala",
           "imageUrl": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "100g", "unit": "g", "mrp": 58.00 },
-            { "packSize": "200g", "unit": "g", "mrp": 110.00 }
+            {
+              "packSize": "100g",
+              "unit": "g",
+              "mrp": 58.0
+            },
+            {
+              "packSize": "200g",
+              "unit": "g",
+              "mrp": 110.0
+            }
           ]
         }
       ]
     },
     {
       "name": "Personal Care",
+      "zoneType": "AMBIENT",
       "products": [
         {
           "name": "Dove Beauty Soap",
@@ -368,8 +654,16 @@
           "description": "Moisturising beauty bar",
           "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "75g",  "unit": "g", "mrp": 48.00 },
-            { "packSize": "150g", "unit": "g", "mrp": 90.00 }
+            {
+              "packSize": "75g",
+              "unit": "g",
+              "mrp": 48.0
+            },
+            {
+              "packSize": "150g",
+              "unit": "g",
+              "mrp": 90.0
+            }
           ]
         },
         {
@@ -378,8 +672,16 @@
           "description": "Cavity protection toothpaste",
           "imageUrl": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "100g", "unit": "g", "mrp": 60.00 },
-            { "packSize": "200g", "unit": "g", "mrp": 110.00 }
+            {
+              "packSize": "100g",
+              "unit": "g",
+              "mrp": 60.0
+            },
+            {
+              "packSize": "200g",
+              "unit": "g",
+              "mrp": 110.0
+            }
           ]
         },
         {
@@ -388,8 +690,16 @@
           "description": "Classic clean anti-dandruff formula",
           "imageUrl": "https://images.unsplash.com/photo-1571781565036-d3f759be73e4?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "180ml", "unit": "ml", "mrp": 180.00 },
-            { "packSize": "340ml", "unit": "ml", "mrp": 320.00 }
+            {
+              "packSize": "180ml",
+              "unit": "ml",
+              "mrp": 180.0
+            },
+            {
+              "packSize": "340ml",
+              "unit": "ml",
+              "mrp": 320.0
+            }
           ]
         },
         {
@@ -398,8 +708,16 @@
           "description": "Purifying neem face wash",
           "imageUrl": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "50ml",  "unit": "ml", "mrp": 80.00 },
-            { "packSize": "100ml", "unit": "ml", "mrp": 145.00 }
+            {
+              "packSize": "50ml",
+              "unit": "ml",
+              "mrp": 80.0
+            },
+            {
+              "packSize": "100ml",
+              "unit": "ml",
+              "mrp": 145.0
+            }
           ]
         },
         {
@@ -408,14 +726,23 @@
           "description": "Antibacterial liquid handwash",
           "imageUrl": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "200ml", "unit": "ml", "mrp": 80.00 },
-            { "packSize": "500ml", "unit": "ml", "mrp": 180.00 }
+            {
+              "packSize": "200ml",
+              "unit": "ml",
+              "mrp": 80.0
+            },
+            {
+              "packSize": "500ml",
+              "unit": "ml",
+              "mrp": 180.0
+            }
           ]
         }
       ]
     },
     {
       "name": "Household Care",
+      "zoneType": "AMBIENT",
       "products": [
         {
           "name": "Surf Excel Matic Liquid",
@@ -423,8 +750,16 @@
           "description": "Front-load washing machine liquid",
           "imageUrl": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500ml", "unit": "ml", "mrp": 155.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 295.00 }
+            {
+              "packSize": "500ml",
+              "unit": "ml",
+              "mrp": 155.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 295.0
+            }
           ]
         },
         {
@@ -433,8 +768,16 @@
           "description": "Thick bleach toilet cleaner",
           "imageUrl": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500ml", "unit": "ml", "mrp": 110.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 200.00 }
+            {
+              "packSize": "500ml",
+              "unit": "ml",
+              "mrp": 110.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 200.0
+            }
           ]
         },
         {
@@ -443,9 +786,21 @@
           "description": "Lemon dishwash bar",
           "imageUrl": "https://images.unsplash.com/photo-1585651923645-eca3b1bfb08e?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "75g",  "unit": "g", "mrp": 12.00 },
-            { "packSize": "150g", "unit": "g", "mrp": 22.00 },
-            { "packSize": "300g", "unit": "g", "mrp": 40.00 }
+            {
+              "packSize": "75g",
+              "unit": "g",
+              "mrp": 12.0
+            },
+            {
+              "packSize": "150g",
+              "unit": "g",
+              "mrp": 22.0
+            },
+            {
+              "packSize": "300g",
+              "unit": "g",
+              "mrp": 40.0
+            }
           ]
         },
         {
@@ -454,14 +809,23 @@
           "description": "Multipurpose floor cleaner",
           "imageUrl": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "500ml", "unit": "ml", "mrp": 90.00 },
-            { "packSize": "1L",    "unit": "ml", "mrp": 165.00 }
+            {
+              "packSize": "500ml",
+              "unit": "ml",
+              "mrp": 90.0
+            },
+            {
+              "packSize": "1L",
+              "unit": "ml",
+              "mrp": 165.0
+            }
           ]
         }
       ]
     },
     {
       "name": "Ready to Eat",
+      "zoneType": "AMBIENT",
       "products": [
         {
           "name": "MTR Upma Ready Mix",
@@ -469,8 +833,16 @@
           "description": "Instant upma breakfast mix",
           "imageUrl": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "200g", "unit": "g", "mrp": 65.00 },
-            { "packSize": "500g", "unit": "g", "mrp": 150.00 }
+            {
+              "packSize": "200g",
+              "unit": "g",
+              "mrp": 65.0
+            },
+            {
+              "packSize": "500g",
+              "unit": "g",
+              "mrp": 150.0
+            }
           ]
         },
         {
@@ -479,8 +851,16 @@
           "description": "Masala noodles, instant",
           "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "70g single",   "unit": "g",   "mrp": 15.00 },
-            { "packSize": "4-pack 280g",  "unit": "pack", "mrp": 56.00 }
+            {
+              "packSize": "70g single",
+              "unit": "g",
+              "mrp": 15.0
+            },
+            {
+              "packSize": "4-pack 280g",
+              "unit": "pack",
+              "mrp": 56.0
+            }
           ]
         },
         {
@@ -489,7 +869,11 @@
           "description": "Ready to eat dal makhani",
           "imageUrl": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "285g", "unit": "g", "mrp": 115.00 }
+            {
+              "packSize": "285g",
+              "unit": "g",
+              "mrp": 115.0
+            }
           ]
         },
         {
@@ -498,7 +882,11 @@
           "description": "Fresh fermented batter, same-day delivery",
           "imageUrl": "https://images.unsplash.com/photo-1630409351241-e90e7f6b3c5d?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "900g", "unit": "g", "mrp": 75.00 }
+            {
+              "packSize": "900g",
+              "unit": "g",
+              "mrp": 75.0
+            }
           ]
         },
         {
@@ -507,7 +895,11 @@
           "description": "Ready to eat paneer curry",
           "imageUrl": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=400&fit=crop&auto=format",
           "skus": [
-            { "packSize": "285g", "unit": "g", "mrp": 125.00 }
+            {
+              "packSize": "285g",
+              "unit": "g",
+              "mrp": 125.0
+            }
           ]
         }
       ]

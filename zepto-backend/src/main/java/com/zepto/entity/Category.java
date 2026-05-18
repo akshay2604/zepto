@@ -1,6 +1,7 @@
 package com.zepto.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.zepto.entity.enums.ZoneType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,10 @@ public class Category {
 
     @Column(nullable = false, length = 100)
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "zone_type", length = 20)
+    private ZoneType zoneType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_category_id")

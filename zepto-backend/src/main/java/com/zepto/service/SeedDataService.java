@@ -127,7 +127,10 @@ public class SeedDataService {
     private Map<String, Category> seedCategories(CatalogRoot catalog) {
         Map<String, Category> map = new LinkedHashMap<>();
         for (CatalogCategory cc : catalog.getCategories()) {
-            Category saved = categoryRepository.save(Category.builder().name(cc.getName()).build());
+            Category saved = categoryRepository.save(Category.builder()
+                    .name(cc.getName())
+                    .zoneType(cc.getZoneType())
+                    .build());
             map.put(cc.getName(), saved);
         }
         return map;
