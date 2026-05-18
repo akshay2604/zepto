@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ShoppingCart, Tag } from 'lucide-react'
+import { ShoppingCart, Tag, Plus, Minus } from 'lucide-react'
 import { clsx } from 'clsx'
 import type { CatalogProduct, Variant } from '../types'
 import { useCart } from '../context/CartContext'
@@ -9,11 +9,13 @@ interface Props {
 }
 
 export function ProductCard({ product }: Props) {
-  const { add } = useCart()
+  const { add, items, updateQty } = useCart()
   const [selectedVariant, setSelectedVariant] = useState<Variant>(product.variants[0])
-  const [added, setAdded] = useState(false)
 
   if (!selectedVariant) return null
+
+  const cartItem = items.find(i => i.variant.id === selectedVariant.id)
+  const qtyInCart = cartItem?.qty ?? 0
 
   const discount = Math.round(
     ((selectedVariant.mrp - selectedVariant.sellingPrice) / selectedVariant.mrp) * 100,
@@ -23,8 +25,6 @@ export function ProductCard({ product }: Props) {
   function handleAdd() {
     if (outOfStock) return
     add(selectedVariant, product.name)
-    setAdded(true)
-    setTimeout(() => setAdded(false), 1200)
   }
 
   return (
@@ -92,21 +92,39 @@ export function ProductCard({ product }: Props) {
                 : `${selectedVariant.qtyAvailable} left`}
             </span>
           )}
-          <button
-            onClick={handleAdd}
-            disabled={outOfStock}
-            className={clsx(
-              'flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all',
-              outOfStock
-                ? 'cursor-not-allowed bg-gray-100 text-gray-400'
-                : added
-                  ? 'bg-green-500 text-white'
+          {qtyInCart > 0 ? (
+            <div className="flex items-center gap-0 rounded-lg overflow-hidden border border-indigo-200">
+              <button
+                onClick={() => updateQty(selectedVariant.id, qtyInCart - 1)}
+                className="flex h-8 w-8 items-center justify-center bg-indigo-50 text-indigo-700 hover:bg-indigo-100 active:scale-95 transition-all"
+              >
+                <Minus className="h-3.5 w-3.5" />
+              </button>
+              <span className="w-7 text-center text-sm font-bold text-indigo-700 select-none">
+                {qtyInCart}
+              </span>
+              <button
+                onClick={handleAdd}
+                className="flex h-8 w-8 items-center justify-center bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95 transition-all"
+              >
+                <Plus className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={handleAdd}
+              disabled={outOfStock}
+              className={clsx(
+                'flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all',
+                outOfStock
+                  ? 'cursor-not-allowed bg-gray-100 text-gray-400'
                   : 'bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95',
-            )}
-          >
-            <ShoppingCart className="h-3.5 w-3.5" />
-            {added ? 'Added!' : 'Add'}
-          </button>
+              )}
+            >
+              <ShoppingCart className="h-3.5 w-3.5" />
+              Add
+            </button>
+          )}
         </div>
       </div>
     </div>

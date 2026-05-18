@@ -147,3 +147,56 @@ export interface AvgDelivery {
   avgDeliveryTimeSecs: number
   totalDelivered: number
 }
+
+// ── Order history ─────────────────────────────────────────────────────────────
+
+export interface OrderResponse {
+  id: string
+  status: OrderStatus
+  user: { id: string; name: string; phone: string }
+  warehouse: { id: string; name: string; city: string }
+  address: {
+    id: string
+    label: string | null
+    line1: string
+    line2: string | null
+    pincode: string
+    city: string
+  }
+  items: Array<{
+    variantId: string
+    displayName: string
+    sku: string
+    categoryName: string
+    qty: number
+    unitPrice: number
+    lineTotal: number
+  }>
+  totalMrp: number
+  totalDiscount: number
+  deliveryFee: number
+  amountPayable: number
+  paymentMethod: string
+  paymentStatus: string
+  placedAt: string
+}
+
+export interface PagedResponse<T> {
+  content: T[]
+  totalElements: number
+  totalPages: number
+  page: number
+  size: number
+}
+
+export interface DeliveryResponse {
+  id: string
+  orderId: string
+  riderName: string
+  riderPhone: string
+  status: string
+  assignedAt: string
+  pickedUpAt: string | null
+  deliveredAt: string | null
+  deliveryTimeSecs: number | null
+}

@@ -128,6 +128,16 @@ export interface Order {
   placedAt: string
 }
 
+export interface Rider {
+  id: string
+  name: string
+  phone: string | null
+  vehicleNumber: string | null
+  active: boolean
+  warehouseId: string | null
+  warehouseName: string | null
+}
+
 export interface Product {
   id: string
   name: string

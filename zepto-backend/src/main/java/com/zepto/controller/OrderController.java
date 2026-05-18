@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -43,13 +44,14 @@ public class OrderController {
     @GetMapping
     public ResponseEntity<PagedResponse<OrderResponse>> listOrders(
             @RequestParam(required = false) OrderStatus status,
+            @RequestParam(required = false) List<OrderStatus> statuses,
             @RequestParam(required = false) UUID warehouseId,
             @RequestParam(required = false) UUID userId,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime from,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime to,
             @RequestParam(defaultValue = "0")  int page,
             @RequestParam(defaultValue = "20") int size) {
-        return ResponseEntity.ok(orderService.listOrders(status, warehouseId, userId, from, to, page, size));
+        return ResponseEntity.ok(orderService.listOrders(status, statuses, warehouseId, userId, from, to, page, size));
     }
 
     @GetMapping("/{id}")

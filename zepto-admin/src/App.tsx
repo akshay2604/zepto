@@ -8,6 +8,7 @@ import { CustomersView } from './views/CustomersView'
 import { InventoryManagementView } from './views/InventoryManagementView'
 import { CatalogView } from './views/CatalogView'
 import { OrdersView } from './views/OrdersView'
+import { RidersView } from './views/RidersView'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/customers" element={<CustomersView />} />
           <Route path="/inventory" element={<InventoryManagementView />} />
           <Route path="/orders" element={<OrdersView />} />
+          <Route path="/riders" element={<RidersView />} />
           <Route path="/simulator" element={<SimulatorView />} />
         </Routes>
       </div>

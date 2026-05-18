@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { LayoutDashboard, BarChart2, Settings2, Shield, Warehouse, Package, Tag, Users, ShoppingBag } from 'lucide-react'
+import { LayoutDashboard, BarChart2, Settings2, Shield, Warehouse, Package, Tag, Users, ShoppingBag, Bike } from 'lucide-react'
 import { clsx } from 'clsx'
 
 const NAV_LINKS = [
@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { to: '/customers', label: 'Customers', Icon: Users },
   { to: '/inventory', label: 'Inventory', Icon: Package },
   { to: '/orders', label: 'Orders', Icon: ShoppingBag },
+  { to: '/riders', label: 'Riders', Icon: Bike },
   { to: '/simulator', label: 'Simulator', Icon: Settings2 },
 ]
 
