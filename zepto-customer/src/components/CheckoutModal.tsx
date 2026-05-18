@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react'
-import { X, CheckCircle, Loader2 } from 'lucide-react'
+import { X, CheckCircle, Loader2, Users } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { useUser } from '../context/UserContext'
 import type { Warehouse } from '../types'
@@ -10,23 +11,20 @@ interface Props {
   warehouse: Warehouse | null
 }
 
-type Step = 'identity' | 'address' | 'payment' | 'done'
+type Step = 'address' | 'payment' | 'done'
 
 const PAYMENT_METHODS = ['UPI', 'CARD', 'WALLET', 'COD']
 
 export function CheckoutModal({ open, onClose, warehouse }: Props) {
   const { items, subtotal, clear } = useCart()
-  const { user, setUser } = useUser()
+  const { user } = useUser()
 
-  const [step, setStep] = useState<Step>(user ? 'address' : 'identity')
+  const [step, setStep] = useState<Step>('address')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [placedOrderId, setPlacedOrderId] = useState<string | null>(null)
 
   // Form state
-  const [name, setName] = useState(user?.name ?? '')
-  const [phone, setPhone] = useState(user?.phone ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
   const [line1, setLine1] = useState('')
   const [pincode, setPincode] = useState(warehouse?.pincode ?? '')
   const [city, setCity] = useState(warehouse?.city ?? 'Bengaluru')
@@ -36,41 +34,6 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
 
   const deliveryFee = subtotal >= 199 ? 0 : 25
   const total = subtotal + deliveryFee
-
-  async function resolveUser(): Promise<string> {
-    // Try to find existing user by phone first
-    const lookup = await fetch(`/users/by-phone/${encodeURIComponent(phone)}`)
-    if (lookup.ok) {
-      const existing = await lookup.json()
-      setUser({ id: existing.id, name: existing.name, phone: existing.phone, email: existing.email,
-        warehouseId: existing.warehouseId ?? null, warehouseName: existing.warehouseName ?? null })
-      return existing.id
-    }
-    // Register new user
-    const reg = await fetch('/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone, email: email || undefined }),
-    })
-    if (!reg.ok) {
-      const err = await reg.json()
-      throw new Error(err.detail ?? 'Registration failed')
-    }
-    const newUser = await reg.json()
-    setUser({ id: newUser.id, name: newUser.name, phone: newUser.phone, email: newUser.email,
-      warehouseId: newUser.warehouseId ?? null, warehouseName: newUser.warehouseName ?? null })
-    return newUser.id
-  }
-
-  async function handleIdentitySubmit(e: FormEvent) {
-    e.preventDefault()
-    setError(null)
-    if (!phone.match(/^\+91\d{10}$/)) {
-      setError('Phone must be in format +91XXXXXXXXXX')
-      return
-    }
-    setStep('address')
-  }
 
   async function handleAddressSubmit(e: FormEvent) {
     e.preventDefault()
@@ -86,7 +49,7 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
     setError(null)
 
     try {
-      const userId = user?.id ?? (await resolveUser())
+      const userId = user!.id
 
       // Add address
       const addrRes = await fetch(`/users/${userId}/addresses`, {
@@ -137,7 +100,7 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
   }
 
   function handleClose() {
-    setStep(user ? 'address' : 'identity')
+    setStep('address')
     setError(null)
     setLine1('')
     setPlacedOrderId(null)
@@ -152,7 +115,6 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
           {/* Header */}
           <div className="flex items-center justify-between border-b px-5 py-4">
             <h2 className="font-semibold text-gray-900">
-              {step === 'identity' && 'Who are you?'}
               {step === 'address' && 'Delivery address'}
               {step === 'payment' && 'Payment & confirm'}
               {step === 'done' && 'Order placed!'}
@@ -163,23 +125,21 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
           </div>
 
           <div className="px-5 py-5">
-            {/* Step: identity */}
-            {step === 'identity' && (
-              <form onSubmit={handleIdentitySubmit} className="space-y-3">
-                <Field label="Name" value={name} onChange={setName} placeholder="Akshay Mathur" required />
-                <Field label="Phone" value={phone} onChange={setPhone} placeholder="+91XXXXXXXXXX" required />
-                <Field label="Email (optional)" value={email} onChange={setEmail} placeholder="you@example.com" type="email" />
-                {error && <p className="text-sm text-red-500">{error}</p>}
-                <button type="submit" className="w-full rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white hover:bg-indigo-700">
-                  Continue →
-                </button>
-              </form>
+            {/* No user selected guard */}
+            {!user && (
+              <div className="flex flex-col items-center gap-3 py-6 text-center text-gray-500">
+                <Users className="h-8 w-8 opacity-40" />
+                <p className="text-sm">Please select a customer before checking out.</p>
+                <Link to="/customers" onClick={handleClose} className="text-sm font-medium text-indigo-600 hover:underline">
+                  Pick a customer →
+                </Link>
+              </div>
             )}
 
             {/* Step: address */}
-            {step === 'address' && (
+            {user && step === 'address' && (
               <form onSubmit={handleAddressSubmit} className="space-y-3">
-                {user && <p className="text-sm text-gray-500">Ordering as <span className="font-medium text-gray-700">{user.name}</span></p>}
+                <p className="text-sm text-gray-500">Ordering as <span className="font-medium text-gray-700">{user.name}</span> · {user.phone}</p>
                 <Field label="Address" value={line1} onChange={setLine1} placeholder="12, 5th Cross, Koramangala" required />
                 <div className="flex gap-3">
                   <Field label="Pincode" value={pincode} onChange={setPincode} placeholder="560034" />
@@ -193,7 +153,7 @@ export function CheckoutModal({ open, onClose, warehouse }: Props) {
             )}
 
             {/* Step: payment */}
-            {step === 'payment' && (
+            {user && step === 'payment' && (
               <form onSubmit={handlePlaceOrder} className="space-y-4">
                 <div>
                   <p className="mb-2 text-sm font-medium text-gray-700">Payment method</p>
