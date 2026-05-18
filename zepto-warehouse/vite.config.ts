@@ -15,6 +15,9 @@ export default defineConfig({
       '/payments':  'http://localhost:8080',
       '/system':    'http://localhost:8080',
       '/warehouses': 'http://localhost:8080',
+      '/pickers':   'http://localhost:8080',
+      '/zones':     'http://localhost:8080',
+      '/batches':   'http://localhost:8080',
     },
   },
 })

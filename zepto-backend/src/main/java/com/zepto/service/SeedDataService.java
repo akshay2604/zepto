@@ -6,6 +6,7 @@ import com.zepto.catalog.CatalogProduct;
 import com.zepto.catalog.CatalogRoot;
 import com.zepto.catalog.CatalogSku;
 import com.zepto.entity.*;
+import com.zepto.entity.enums.ZoneType;
 import com.zepto.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,7 @@ public class SeedDataService {
     private final ProductVariantRepository  productVariantRepository;
     private final InventoryLedgerRepository inventoryLedgerRepository;
     private final PickerRepository          pickerRepository;
+    private final ZoneRepository            zoneRepository;
     private final ObjectMapper              objectMapper;
 
     private static final List<Map<String, String>> PICKER_TEMPLATES = List.of(
@@ -88,6 +90,7 @@ public class SeedDataService {
         List<ProductVariant>         variants   = seedProducts(catalog, categories);
         seedInventory(warehouses, variants);
         seedPickers(warehouses);
+        seedZones(warehouses);
 
         log.info("[SEED] Done — {} warehouse(s), {} variant(s) across {} category(ies).",
                  warehouses.size(), variants.size(), categories.size());
@@ -175,6 +178,24 @@ public class SeedDataService {
                         .phone(tmpl.get("phone"))
                         .active(true)
                         .build());
+            }
+        }
+    }
+
+    private void seedZones(List<Warehouse> warehouses) {
+        record ZoneDef(String name, ZoneType type, int order, double x, double y, double w, double h) {}
+        List<ZoneDef> defs = List.of(
+            new ZoneDef("Produce",  ZoneType.PRODUCE,  1, 0.0,  0.0,  0.25, 0.5),
+            new ZoneDef("Chilled",  ZoneType.CHILLED,  2, 0.0,  0.5,  0.25, 0.5),
+            new ZoneDef("Frozen",   ZoneType.FROZEN,   3, 0.25, 0.0,  0.25, 1.0),
+            new ZoneDef("Ambient",  ZoneType.AMBIENT,  4, 0.5,  0.0,  0.5,  1.0)
+        );
+        for (Warehouse w : warehouses) {
+            if (zoneRepository.existsByWarehouseId(w.getId())) continue;
+            for (ZoneDef d : defs) {
+                zoneRepository.save(Zone.builder()
+                    .warehouse(w).name(d.name()).zoneType(d.type()).displayOrder(d.order())
+                    .x(d.x()).y(d.y()).w(d.w()).h(d.h()).build());
             }
         }
     }

@@ -154,11 +154,15 @@ public class OrderService {
 
     @Transactional(readOnly = true)
     public PagedResponse<OrderResponse> listOrders(
-            OrderStatus status, UUID warehouseId, UUID userId,
+            OrderStatus status, List<OrderStatus> statuses, UUID warehouseId, UUID userId,
             LocalDateTime from, LocalDateTime to, int page, int size) {
 
         Specification<Order> spec = Specification.where(null);
-        if (status      != null) spec = spec.and((r, q, cb) -> cb.equal(r.get("status"), status));
+        if (statuses != null && !statuses.isEmpty()) {
+            spec = spec.and((r, q, cb) -> r.get("status").in(statuses));
+        } else if (status != null) {
+            spec = spec.and((r, q, cb) -> cb.equal(r.get("status"), status));
+        }
         if (warehouseId != null) spec = spec.and((r, q, cb) -> cb.equal(r.get("warehouse").get("id"), warehouseId));
         if (userId      != null) spec = spec.and((r, q, cb) -> cb.equal(r.get("user").get("id"), userId));
         if (from        != null) spec = spec.and((r, q, cb) -> cb.greaterThanOrEqualTo(r.get("placedAt"), from));
@@ -195,6 +199,7 @@ public class OrderService {
                         i.getVariant().getId(),
                         i.getVariant().getDisplayName(),
                         i.getVariant().getSkuCode(),
+                        i.getVariant().getProduct().getCategory().getName(),
                         i.getQty(),
                         i.getUnitPrice(),
                         i.getLineTotal()

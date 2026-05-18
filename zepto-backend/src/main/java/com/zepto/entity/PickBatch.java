@@ -36,7 +36,7 @@ public class PickBatch {
     private Picker picker;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "batch_status_enum")
+    @Column(nullable = false, length = 20)
     @Builder.Default
     private BatchStatus status = BatchStatus.PENDING;
 

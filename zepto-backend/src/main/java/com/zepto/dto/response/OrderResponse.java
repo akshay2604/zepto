@@ -27,6 +27,7 @@ public record OrderResponse(
     public record WarehouseSummary(UUID id, String name, String city) {}
     public record ItemLine(
             UUID variantId, String displayName, String sku,
+            String categoryName,
             int qty, BigDecimal unitPrice, BigDecimal lineTotal
     ) {}
 }

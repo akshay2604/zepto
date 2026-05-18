@@ -22,6 +22,7 @@ export interface Picker {
   name: string
   phone: string | null
   active: boolean
+  zones: ZoneType[]
 }
 
 export interface OrderEvent {
@@ -82,4 +83,49 @@ export interface OrderFunnel {
 export interface AvgDelivery {
   avgDeliveryTimeSecs: number
   totalDelivered: number
+}
+
+export type ZoneType = 'AMBIENT' | 'CHILLED' | 'FROZEN' | 'PRODUCE'
+
+export interface Zone {
+  id: string
+  warehouseId: string
+  name: string
+  zoneType: ZoneType
+  displayOrder: number
+  x: number
+  y: number
+  w: number
+  h: number
+  orderCount: number
+}
+
+export type BatchStatus = 'PENDING' | 'ACTIVE' | 'COMPLETE'
+
+export interface PickBatchItem {
+  id: string
+  orderId: string
+  orderItemId: string
+  variantId: string
+  displayName: string
+  sku: string
+  zoneType: ZoneType
+  qty: number
+  picked: boolean
+  pickedAt: string | null
+  sortOrder: number
+}
+
+export interface PickBatch {
+  id: string
+  warehouseId: string
+  pickerId: string | null
+  pickerName: string | null
+  status: BatchStatus
+  orderCount: number
+  zonesCovered: ZoneType[]
+  createdAt: string
+  completedAt: string | null
+  orderIds: string[]
+  items: PickBatchItem[]
 }

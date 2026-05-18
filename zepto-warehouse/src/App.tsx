@@ -5,6 +5,9 @@ import { PickersView } from './views/PickersView'
 import { InventoryBoardView } from './views/InventoryBoardView'
 import { MovementFeedView } from './views/MovementFeedView'
 import { WarehouseProvider } from './context/WarehouseContext'
+import { ZoneMapView } from './views/ZoneMapView'
+import { BatchDashboardView } from './views/BatchDashboardView'
+import { PickSessionView } from './views/PickSessionView'
 
 export default function App() {
   return (
@@ -18,6 +21,9 @@ export default function App() {
             <Route path="/pickers" element={<PickersView />} />
             <Route path="/inventory" element={<InventoryBoardView />} />
             <Route path="/movements" element={<MovementFeedView />} />
+            <Route path="/zones" element={<ZoneMapView />} />
+            <Route path="/batches" element={<BatchDashboardView />} />
+            <Route path="/pick-session" element={<PickSessionView />} />
           </Routes>
         </div>
       </WarehouseProvider>

@@ -41,7 +41,7 @@ public class PickBatchItem {
     private ProductVariant variant;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "zone_type", nullable = false, columnDefinition = "zone_type_enum")
+    @Column(name = "zone_type", nullable = false, length = 20)
     private ZoneType zoneType;
 
     @Column(name = "sort_order", nullable = false)

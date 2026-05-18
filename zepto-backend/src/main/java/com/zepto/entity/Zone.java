@@ -31,7 +31,7 @@ public class Zone {
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "zone_type", nullable = false, columnDefinition = "zone_type_enum")
+    @Column(name = "zone_type", nullable = false, length = 20)
     private ZoneType zoneType;
 
     @Column(name = "display_order", nullable = false)

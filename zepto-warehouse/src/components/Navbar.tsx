@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Warehouse, List, Package, Activity, Users, ChevronDown, MapPin, Check } from 'lucide-react'
+import { Warehouse, List, Package, Activity, Users, ChevronDown, MapPin, Check, LayoutGrid, Layers, ScanLine } from 'lucide-react'
 import { clsx } from 'clsx'
 import { useWarehouse } from '../context/WarehouseContext'
 
 const NAV_LINKS = [
-  { to: '/picker',    label: 'Picker Queue', Icon: List },
-  { to: '/pickers',   label: 'Pickers',      Icon: Users },
-  { to: '/inventory', label: 'Inventory',    Icon: Package },
-  { to: '/movements', label: 'Movements',    Icon: Activity },
+  { to: '/picker',       label: 'Picker Queue', Icon: List },
+  { to: '/pickers',      label: 'Pickers',      Icon: Users },
+  { to: '/inventory',    label: 'Inventory',    Icon: Package },
+  { to: '/movements',    label: 'Movements',    Icon: Activity },
+  { to: '/zones',        label: 'Floor Plan',   Icon: LayoutGrid },
+  { to: '/batches',      label: 'Batches',      Icon: Layers },
+  { to: '/pick-session', label: 'Pick Session', Icon: ScanLine },
 ]
 
 export function Navbar() {
