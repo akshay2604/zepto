@@ -147,14 +147,14 @@ public class SeedDataService {
                         .active(true)
                         .build());
                 for (CatalogSku sku : cp.getSkus()) {
-                    allVariants.add(buildAndSaveVariant(product, sku, skuCounter++));
+                    allVariants.add(buildAndSaveVariant(product, sku, skuCounter++, cp.getImageUrl()));
                 }
             }
         }
         return allVariants;
     }
 
-    private ProductVariant buildAndSaveVariant(Product product, CatalogSku sku, int skuIndex) {
+    private ProductVariant buildAndSaveVariant(Product product, CatalogSku sku, int skuIndex, String imageUrl) {
         BigDecimal mrp          = BigDecimal.valueOf(sku.getMrp());
         BigDecimal sellingPrice = mrp.multiply(BigDecimal.valueOf(0.95)).setScale(2, RoundingMode.HALF_UP);
         return productVariantRepository.save(ProductVariant.builder()
@@ -166,7 +166,7 @@ public class SeedDataService {
                 .mrp(mrp)
                 .sellingPrice(sellingPrice)
                 .available(true)
-                .imageUrl(product.getImageUrl())
+                .imageUrl(imageUrl)
                 .build());
     }
 
