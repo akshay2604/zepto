@@ -1,0 +1,469 @@
+{
+  "categories": [
+    {
+      "name": "Dairy & Eggs",
+      "products": [
+        {
+          "name": "Amul Toned Milk",
+          "brand": "Amul",
+          "description": "Fresh toned milk, 3% fat",
+          "skus": [
+            { "packSize": "200ml", "unit": "ml", "mrp": 22.00 },
+            { "packSize": "500ml", "unit": "ml", "mrp": 50.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 90.00 }
+          ]
+        },
+        {
+          "name": "Amul Gold Full Cream Milk",
+          "brand": "Amul",
+          "description": "Full cream milk, 6% fat",
+          "skus": [
+            { "packSize": "500ml", "unit": "ml", "mrp": 56.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 105.00 }
+          ]
+        },
+        {
+          "name": "Nandini Curd",
+          "brand": "Nandini",
+          "description": "Fresh probiotic curd",
+          "skus": [
+            { "packSize": "200g", "unit": "g", "mrp": 30.00 },
+            { "packSize": "400g", "unit": "g", "mrp": 58.00 },
+            { "packSize": "1kg",  "unit": "g", "mrp": 130.00 }
+          ]
+        },
+        {
+          "name": "Mother Dairy Paneer",
+          "brand": "Mother Dairy",
+          "description": "Fresh soft paneer",
+          "skus": [
+            { "packSize": "200g", "unit": "g", "mrp": 75.00 },
+            { "packSize": "500g", "unit": "g", "mrp": 180.00 }
+          ]
+        },
+        {
+          "name": "Amul Butter",
+          "brand": "Amul",
+          "description": "Pasteurised butter, salted",
+          "skus": [
+            { "packSize": "100g", "unit": "g", "mrp": 55.00 },
+            { "packSize": "500g", "unit": "g", "mrp": 260.00 }
+          ]
+        },
+        {
+          "name": "Britannia Cheese Slices",
+          "brand": "Britannia",
+          "description": "Processed cheese slices",
+          "skus": [
+            { "packSize": "7 slices",  "unit": "pcs", "mrp": 95.00 },
+            { "packSize": "14 slices", "unit": "pcs", "mrp": 185.00 }
+          ]
+        },
+        {
+          "name": "Farm Eggs",
+          "brand": "Suguna",
+          "description": "Fresh farm eggs, white",
+          "skus": [
+            { "packSize": "6 pcs",  "unit": "pcs", "mrp": 62.00 },
+            { "packSize": "12 pcs", "unit": "pcs", "mrp": 120.00 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fruits & Vegetables",
+      "products": [
+        {
+          "name": "Fresh Tomatoes",
+          "brand": "Farm Fresh",
+          "description": "Locally sourced hybrid tomatoes",
+          "skus": [
+            { "packSize": "500g", "unit": "g", "mrp": 35.00 },
+            { "packSize": "1kg",  "unit": "g", "mrp": 65.00 }
+          ]
+        },
+        {
+          "name": "Onions",
+          "brand": "Farm Fresh",
+          "description": "Red onions, Nashik variety",
+          "skus": [
+            { "packSize": "500g", "unit": "g", "mrp": 25.00 },
+            { "packSize": "1kg",  "unit": "g", "mrp": 45.00 },
+            { "packSize": "2kg",  "unit": "g", "mrp": 85.00 }
+          ]
+        },
+        {
+          "name": "Bananas",
+          "brand": "Farm Fresh",
+          "description": "Robusta bananas, ripe",
+          "skus": [
+            { "packSize": "6 pcs",  "unit": "pcs", "mrp": 35.00 },
+            { "packSize": "12 pcs", "unit": "pcs", "mrp": 65.00 }
+          ]
+        },
+        {
+          "name": "Potatoes",
+          "brand": "Farm Fresh",
+          "description": "Fresh washed potatoes",
+          "skus": [
+            { "packSize": "500g", "unit": "g", "mrp": 30.00 },
+            { "packSize": "1kg",  "unit": "g", "mrp": 55.00 },
+            { "packSize": "2kg",  "unit": "g", "mrp": 100.00 }
+          ]
+        },
+        {
+          "name": "Fresh Spinach",
+          "brand": "Farm Fresh",
+          "description": "Tender baby spinach leaves",
+          "skus": [
+            { "packSize": "250g", "unit": "g", "mrp": 20.00 },
+            { "packSize": "500g", "unit": "g", "mrp": 35.00 }
+          ]
+        },
+        {
+          "name": "Green Chillies",
+          "brand": "Farm Fresh",
+          "description": "Hot green chillies",
+          "skus": [
+            { "packSize": "100g", "unit": "g", "mrp": 15.00 },
+            { "packSize": "200g", "unit": "g", "mrp": 28.00 }
+          ]
+        },
+        {
+          "name": "Apples",
+          "brand": "Himalayan Fresh",
+          "description": "Shimla apples, medium size",
+          "skus": [
+            { "packSize": "4 pcs", "unit": "pcs", "mrp": 80.00 },
+            { "packSize": "6 pcs", "unit": "pcs", "mrp": 115.00 }
+          ]
+        },
+        {
+          "name": "Lemons",
+          "brand": "Farm Fresh",
+          "description": "Seedless lemon, Kagzi variety",
+          "skus": [
+            { "packSize": "4 pcs", "unit": "pcs", "mrp": 20.00 },
+            { "packSize": "8 pcs", "unit": "pcs", "mrp": 38.00 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Snacks & Biscuits",
+      "products": [
+        {
+          "name": "Haldirams Aloo Bhujia",
+          "brand": "Haldirams",
+          "description": "Crispy potato bhujia namkeen",
+          "skus": [
+            { "packSize": "200g", "unit": "g", "mrp": 80.00 },
+            { "packSize": "500g", "unit": "g", "mrp": 180.00 }
+          ]
+        },
+        {
+          "name": "Britannia Good Day Butter Cookies",
+          "brand": "Britannia",
+          "description": "Crispy butter biscuits",
+          "skus": [
+            { "packSize": "75g",  "unit": "g", "mrp": 30.00 },
+            { "packSize": "150g", "unit": "g", "mrp": 55.00 }
+          ]
+        },
+        {
+          "name": "Parle-G Original Biscuits",
+          "brand": "Parle",
+          "description": "Glucose biscuits, original",
+          "skus": [
+            { "packSize": "100g", "unit": "g", "mrp": 10.00 },
+            { "packSize": "250g", "unit": "g", "mrp": 25.00 }
+          ]
+        },
+        {
+          "name": "Lays Classic Salted",
+          "brand": "PepsiCo",
+          "description": "Thin crispy potato chips",
+          "skus": [
+            { "packSize": "26g", "unit": "g", "mrp": 20.00 },
+            { "packSize": "52g", "unit": "g", "mrp": 35.00 }
+          ]
+        },
+        {
+          "name": "Kurkure Masala Munch",
+          "brand": "PepsiCo",
+          "description": "Crunchy masala corn snack",
+          "skus": [
+            { "packSize": "50g", "unit": "g", "mrp": 20.00 },
+            { "packSize": "90g", "unit": "g", "mrp": 35.00 }
+          ]
+        },
+        {
+          "name": "Oreo Original Cookies",
+          "brand": "Mondelez",
+          "description": "Chocolate sandwich cookies",
+          "skus": [
+            { "packSize": "120g", "unit": "g", "mrp": 50.00 },
+            { "packSize": "300g", "unit": "g", "mrp": 120.00 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Beverages",
+      "products": [
+        {
+          "name": "Paperboat Aam Panna",
+          "brand": "Paperboat",
+          "description": "Raw mango drink with spices",
+          "skus": [
+            { "packSize": "200ml", "unit": "ml", "mrp": 25.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 100.00 }
+          ]
+        },
+        {
+          "name": "Red Bull Energy Drink",
+          "brand": "Red Bull",
+          "description": "Energy drink with taurine",
+          "skus": [
+            { "packSize": "250ml", "unit": "ml", "mrp": 130.00 },
+            { "packSize": "355ml", "unit": "ml", "mrp": 180.00 }
+          ]
+        },
+        {
+          "name": "Bisleri Mineral Water",
+          "brand": "Bisleri",
+          "description": "Packaged drinking water",
+          "skus": [
+            { "packSize": "500ml", "unit": "ml", "mrp": 15.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 25.00 }
+          ]
+        },
+        {
+          "name": "Tropicana 100% Orange Juice",
+          "brand": "PepsiCo",
+          "description": "Pure squeezed orange juice",
+          "skus": [
+            { "packSize": "200ml", "unit": "ml", "mrp": 30.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 110.00 }
+          ]
+        },
+        {
+          "name": "Nescafe Classic Instant Coffee",
+          "brand": "Nestlé",
+          "description": "100% pure instant coffee",
+          "skus": [
+            { "packSize": "50g",  "unit": "g", "mrp": 165.00 },
+            { "packSize": "100g", "unit": "g", "mrp": 310.00 },
+            { "packSize": "200g", "unit": "g", "mrp": 590.00 }
+          ]
+        },
+        {
+          "name": "Lipton Green Tea",
+          "brand": "Lipton",
+          "description": "100% natural green tea bags",
+          "skus": [
+            { "packSize": "25 bags", "unit": "pcs", "mrp": 90.00 },
+            { "packSize": "50 bags", "unit": "pcs", "mrp": 170.00 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Staples & Grains",
+      "products": [
+        {
+          "name": "Aashirvaad Whole Wheat Atta",
+          "brand": "ITC",
+          "description": "Whole wheat flour, stone-ground",
+          "skus": [
+            { "packSize": "1kg", "unit": "kg", "mrp": 65.00 },
+            { "packSize": "5kg", "unit": "kg", "mrp": 295.00 }
+          ]
+        },
+        {
+          "name": "India Gate Classic Basmati Rice",
+          "brand": "KRBL",
+          "description": "Aged Basmati rice, long grain",
+          "skus": [
+            { "packSize": "1kg", "unit": "kg", "mrp": 115.00 },
+            { "packSize": "5kg", "unit": "kg", "mrp": 545.00 }
+          ]
+        },
+        {
+          "name": "Tata Salt",
+          "brand": "Tata Consumer",
+          "description": "Iodised vacuum evaporated salt",
+          "skus": [
+            { "packSize": "1kg", "unit": "kg", "mrp": 28.00 }
+          ]
+        },
+        {
+          "name": "Fortune Sunflower Oil",
+          "brand": "Adani Wilmar",
+          "description": "Refined sunflower cooking oil",
+          "skus": [
+            { "packSize": "500ml", "unit": "ml", "mrp": 75.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 145.00 }
+          ]
+        },
+        {
+          "name": "Tata Sampann Toor Dal",
+          "brand": "Tata Consumer",
+          "description": "Unpolished toor dal",
+          "skus": [
+            { "packSize": "500g", "unit": "g", "mrp": 75.00 },
+            { "packSize": "1kg",  "unit": "g", "mrp": 145.00 }
+          ]
+        },
+        {
+          "name": "MTR Sambar Powder",
+          "brand": "MTR",
+          "description": "Authentic Karnataka sambar masala",
+          "skus": [
+            { "packSize": "100g", "unit": "g", "mrp": 58.00 },
+            { "packSize": "200g", "unit": "g", "mrp": 110.00 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Personal Care",
+      "products": [
+        {
+          "name": "Dove Beauty Soap",
+          "brand": "Unilever",
+          "description": "Moisturising beauty bar",
+          "skus": [
+            { "packSize": "75g",  "unit": "g", "mrp": 48.00 },
+            { "packSize": "150g", "unit": "g", "mrp": 90.00 }
+          ]
+        },
+        {
+          "name": "Colgate StrongTeeth Toothpaste",
+          "brand": "Colgate",
+          "description": "Cavity protection toothpaste",
+          "skus": [
+            { "packSize": "100g", "unit": "g", "mrp": 60.00 },
+            { "packSize": "200g", "unit": "g", "mrp": 110.00 }
+          ]
+        },
+        {
+          "name": "Head & Shoulders Anti-Dandruff Shampoo",
+          "brand": "P&G",
+          "description": "Classic clean anti-dandruff formula",
+          "skus": [
+            { "packSize": "180ml", "unit": "ml", "mrp": 180.00 },
+            { "packSize": "340ml", "unit": "ml", "mrp": 320.00 }
+          ]
+        },
+        {
+          "name": "Himalaya Neem Face Wash",
+          "brand": "Himalaya",
+          "description": "Purifying neem face wash",
+          "skus": [
+            { "packSize": "50ml",  "unit": "ml", "mrp": 80.00 },
+            { "packSize": "100ml", "unit": "ml", "mrp": 145.00 }
+          ]
+        },
+        {
+          "name": "Dettol Original Handwash",
+          "brand": "Reckitt",
+          "description": "Antibacterial liquid handwash",
+          "skus": [
+            { "packSize": "200ml", "unit": "ml", "mrp": 80.00 },
+            { "packSize": "500ml", "unit": "ml", "mrp": 180.00 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Household Care",
+      "products": [
+        {
+          "name": "Surf Excel Matic Liquid",
+          "brand": "Unilever",
+          "description": "Front-load washing machine liquid",
+          "skus": [
+            { "packSize": "500ml", "unit": "ml", "mrp": 155.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 295.00 }
+          ]
+        },
+        {
+          "name": "Harpic Power Plus",
+          "brand": "Reckitt",
+          "description": "Thick bleach toilet cleaner",
+          "skus": [
+            { "packSize": "500ml", "unit": "ml", "mrp": 110.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 200.00 }
+          ]
+        },
+        {
+          "name": "Vim Dishwash Bar",
+          "brand": "Unilever",
+          "description": "Lemon dishwash bar",
+          "skus": [
+            { "packSize": "75g",  "unit": "g", "mrp": 12.00 },
+            { "packSize": "150g", "unit": "g", "mrp": 22.00 },
+            { "packSize": "300g", "unit": "g", "mrp": 40.00 }
+          ]
+        },
+        {
+          "name": "Domex Fresh Guard",
+          "brand": "Unilever",
+          "description": "Multipurpose floor cleaner",
+          "skus": [
+            { "packSize": "500ml", "unit": "ml", "mrp": 90.00 },
+            { "packSize": "1L",    "unit": "ml", "mrp": 165.00 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ready to Eat",
+      "products": [
+        {
+          "name": "MTR Upma Ready Mix",
+          "brand": "MTR",
+          "description": "Instant upma breakfast mix",
+          "skus": [
+            { "packSize": "200g", "unit": "g", "mrp": 65.00 },
+            { "packSize": "500g", "unit": "g", "mrp": 150.00 }
+          ]
+        },
+        {
+          "name": "Maggi 2-Minute Noodles",
+          "brand": "Nestlé",
+          "description": "Masala noodles, instant",
+          "skus": [
+            { "packSize": "70g single",   "unit": "g",   "mrp": 15.00 },
+            { "packSize": "4-pack 280g",  "unit": "pack", "mrp": 56.00 }
+          ]
+        },
+        {
+          "name": "Haldirams Dal Makhani",
+          "brand": "Haldirams",
+          "description": "Ready to eat dal makhani",
+          "skus": [
+            { "packSize": "285g", "unit": "g", "mrp": 115.00 }
+          ]
+        },
+        {
+          "name": "iD Fresh Idli & Dosa Batter",
+          "brand": "iD Fresh",
+          "description": "Fresh fermented batter, same-day delivery",
+          "skus": [
+            { "packSize": "900g", "unit": "g", "mrp": 75.00 }
+          ]
+        },
+        {
+          "name": "Tasty Bite Paneer Makhani",
+          "brand": "Tasty Bite",
+          "description": "Ready to eat paneer curry",
+          "skus": [
+            { "packSize": "285g", "unit": "g", "mrp": 125.00 }
+          ]
+        }
+      ]
+    }
+  ]
+}
